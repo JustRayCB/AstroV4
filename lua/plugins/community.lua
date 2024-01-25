@@ -1,5 +1,6 @@
 ---@type LazySpec
 return {
+  "AstroNvim/astrocommunity",
   -- Add community imports to the `lua/config/lazy.lua` file in your Neovim configuration folder (typically ~/.config/nvim)
   -- this guarantees that the community plugin specs are loaded before the user configuration
 
@@ -22,6 +23,9 @@ return {
   --     },
   --   },
   -- },
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.java" },
   {
     "mfussenegger/nvim-jdtls",
     opts = function(_, opts)
