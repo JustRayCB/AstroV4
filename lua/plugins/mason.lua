@@ -1,4 +1,4 @@
-if true then return {} end -- REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- Example customization of mason plugins
 ---@type LazySpec
@@ -11,7 +11,11 @@ return {
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        "lua_ls"
+        "lua_ls",
+        "jdtls",
+        "clangd",
+        "sqlls",
+        "pyright"
         -- add more arguments for adding more language servers
       )
     end,
@@ -24,8 +28,8 @@ return {
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        "prettier",
-        "stylua"
+        "prettier"
+        -- "stylua"
         -- add more arguments for adding more null-ls sources
       )
     end,
@@ -37,7 +41,13 @@ return {
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        "python"
+        -- "python"
+        "cpptools",
+        "codelldb",
+        "debugpy"
+        -- "javadbg",
+        -- "java-debug-adapter",
+        -- "java-test"
         -- add more arguments for adding more debuggers
       )
     end,
