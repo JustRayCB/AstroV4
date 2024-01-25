@@ -22,4 +22,19 @@ return {
   --     },
   --   },
   -- },
+  {
+    "mfussenegger/nvim-jdtls",
+    opts = function(_, opts)
+      local utils = require "astrocore"
+      local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
+      local root_dir = function()
+        if not require("jdtls.setup").find_root(root_markers) then -- If there I just want to code outside a project
+          return vim.fn.getcwd()
+        else
+          return require("jdtls.setup").find_root(root_markers)
+        end
+      end
+      return utils.extend_tbl({ root_dir = root_dir() }, opts)
+    end,
+  },
 }

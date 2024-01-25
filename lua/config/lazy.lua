@@ -20,8 +20,8 @@ lazy.setup({
   { "AstroNvim/AstroNvim", branch = "v4", import = "astronvim.plugins" },
   -- AstroCommunity: import any community modules here
   -- TODO: Remove branch v4 on release
-  -- { "AstroNvim/astrocommunity", branch = "v4" },
-  -- { import = "astrocommunity.pack.lua" },
+  { "AstroNvim/astrocommunity", branch = "v4" },
+  { import = "astrocommunity.pack.java" },
   -- import/override with your plugins
   { import = "plugins" },
 } --[[@as LazySpec]], {
