@@ -1,0 +1,25 @@
+{
+    "Red": {
+        "prefix": [ "red", "r" ],
+        "body": [
+            "<span style=\"color: red;\">$1</span>"
+        ],
+        "description": "Red color in Markdown"
+    },
+    "Underline" : {
+        "prefix": [ "underline", "u" ],
+        "body": [
+            "<u>$1</u>"
+        ],
+        "description": "Underline in Markdown"
+    },
+
+    "Green": {
+        "prefix": [ "green", "g" ],
+        "body": [
+            "<span style=\"color: green;\">$1</span>"
+        ],
+        "description": "Green color in Markdown"
+    }
+    
+}

@@ -1,0 +1,22 @@
+{
+  "Something": {
+    "prefix": "smt",
+    "body": [
+      "salut",
+      "comment ca va ?",
+      "hehehe",
+      ""
+    ],
+    "description": "Salut"
+  },
+  "Something else": {
+    "prefix": "smtelse",
+    "body": [
+      "salut",
+      "comment ca va ?",
+      "hehehe",
+      ""
+    ],
+    "description": "Salut"
+  }
+}

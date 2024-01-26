@@ -1,0 +1,280 @@
+{
+    "Bold" : {
+        "prefix": [ "b", "bold" ],
+        "body": [
+            "\\textbf{$1}"
+        ],
+        "description": "Bold"
+        
+    },
+
+    "Bold italics": {
+        "prefix": [ "bi", "bolditalics" ],
+        "body": [
+            "\\textbf{\\textit{$1}}"
+        ],
+        "description": "Bold italics"
+    },
+
+    "Italics": {
+        "prefix": [ "i", "italics" ],
+        "body": [
+            "\\textit{$1}"
+        ],
+        "description": "Italics"
+    },
+    
+    "Convention": {
+        "prefix": [ "convention", "conv" ],
+        "body": [
+            "\\begin{convention}",
+            "\t$1",
+            "\\end{convention}"
+        ],
+        "description": "Convention tcolorbox"
+    },
+    
+    "Definition": {
+        "prefix": "def",
+        "body": [
+            "\\begin{definition}{$1}{$2}",
+            "\t$3",
+            "\\end{definition}"
+        ],
+        "description": "Definition tcolorbox"
+    },
+    
+    "Proposition": {
+        "prefix": [ "prop","proposition" ],
+        "body": [
+            "\\begin{proposition}{$1}{$2}",
+            "\t$3",
+            "\\end{proposition}"
+        ],
+        "description": "Proposition tcolorbox"
+    },
+    
+    "Example": {
+        "prefix": [ "ex","example" ],
+        "body": [
+            "\\begin{example}\\leavevmode",
+            "\t$1",
+            "\\end{example}"
+        ],
+        "description": "Example tcolorbox"
+    },
+    "Examples": {
+        "prefix": [ "exs","examples" ],
+        "body": [
+            "\\begin{examples}\\leavevmode",
+            "\t\\begin{enumerate}",
+            "\t\t$1",
+            "\t\\end{enumerate}",
+            "\\end{examples}"
+        ],
+        "description": "Example tcolorbox"
+    },
+    
+    "Theorem": {
+        "prefix": [ "theo","theorem" ],
+        "body": [
+            "\\begin{theorem}{$1}{$2}",
+            "\t$3",
+            "\\end{theorem}"
+        ],
+        "description": "Theorem tcolorbox"
+    },
+
+    "Proof": {
+        "prefix": [ "pr", "pro", "proof" ],
+        "body": [
+            "\\begin{myproof}{$1}{$2}",
+            "\t$3",
+            "\\end{myproof}"
+        ],
+        "description": "Proof tcolorbox"
+    },
+
+    
+    "Remark": {
+        "prefix": [ "rem","remark" ],
+        "body": [
+            "\\begin{remark}\\leavevmode",
+            "\t$1",
+            "\\end{remark}"
+        ],
+        "description": "Remark tcolorbox"
+    },
+    
+    "Remarks": {
+        "prefix": [ "rems","remarks" ],
+        "body": [
+            "\\begin{remarks}\\leavevmode",
+            "\\begin{enumerate}",
+            "\t$1",
+            "\\end{enumerate}",
+            "\\end{remarks}"
+        ],
+        "description": "Remark tcolorbox"
+    },
+    
+    "Corollary": {
+        "prefix": [ "cor","corollary" ],
+        "body": [
+            "\\begin{corollary}{$1}{$2}",
+            "\t$3",
+            "\\end{corollary}"
+        ],
+        "description": "Corollary tcolorbox"
+    },
+
+    "Lemma": {
+        "prefix": [ "lem","lemma" ],
+        "body": [
+            "\\begin{lemma}{$1}{$2}",
+            "\t$3",
+            "\\end{lemma}"
+        ],
+        "description": "Lemma tcolorbox"
+    },
+
+    "Cref": {
+        "prefix": [ "cref" ],
+        "body": [
+            "\\Cref{$1}"
+        ],
+        "description": "Cref"
+    },
+
+    "Nref": {
+        "prefix": [ "nref" ],
+        "body": [
+            "\\nameref{$1}"
+        ],
+        "description": "Nref"
+    },
+
+    "Note": {
+        "prefix": [ "note" ],
+        "body": [
+            "\\begin{note}",
+            "\t$1",
+            "\\end{note}"
+        ],
+        "description": "Note"
+    },
+
+    "Red": {
+        "prefix": [ "red" ],
+        "body": [
+            "\\textcolor{red}{$1}"
+        ],
+        "description": "Red"
+    },
+
+    "Blue": {
+        "prefix": [ "blue" ],
+        "body": [
+            "\\textcolor{blue}{$1}"
+        ],
+        "description": "Blue"
+    },
+
+    "Green": {
+        "prefix": [ "green" ],
+        "body": [
+            "\\textcolor{green}{$1}"
+        ],
+        "description": "Green"
+    },
+
+    "Yellow": {
+        "prefix": [ "yellow" ],
+        "body": [
+            "\\textcolor{yellow}{$1}"
+        ],
+        "description": "Yellow"
+    },
+
+    "Minted":{
+        "prefix": [ "minted" ],
+        "body": [
+            "\\begin{minted}[mathescape, linenos, breaklines, numbersep=5pt, frame=lines, framesep=1mm]{$1}",
+            "$2",
+            "\\end{minted}"
+        ],
+        "description": "Minted"
+    },
+
+    "Code": {
+        "prefix": ["code"],
+        "body": [
+            "\\begin{code}",
+            "\\caption{$1}",
+            "\\label{code:$2}",
+            "\\begin{minted}[mathescape, linenos, breaklines, numbersep=5pt, frame=lines, framesep=1mm]{$3}",
+            "$4",
+            "\\end{minted}",
+            "\\end{code}"
+        ],
+        "description": "Code"
+    },
+    
+    "Underline": {
+        "prefix": [ "ul" ],
+        "body": [
+            "\\underline{$1}"
+        ],
+        "description": "Underline"
+    },
+
+    "Machine": {
+        "prefix": ["tt"],
+        "body": [
+            "\\texttt{$1}"
+        ],
+        "description": "Machine Format"
+    },
+
+    "NoIndent": {
+        "prefix": [ "ni" ],
+        "body": [
+            "\\noindent $1"
+        ],
+        "description": "No Indent"
+    },
+    
+    "HyperRef": {
+        "prefix": [ "href" ],
+        "body": [
+            "\\href{$1}{$2}"
+        ],
+        "description": "Hyper Ref"
+    },
+
+    "Minipage": {
+        "prefix": ["mini", "minipage" ],
+        "body": [
+            "\\begin{minipage}{0.45\\textwidth}",
+            "\t\\centering",
+            "\t\\scalebox{$1}{",
+            "\t\t$2",
+            "\t}",
+            "\t\\caption{$3}",
+            "\t\\label{fig:$4}",
+            "\\end{minipage}"
+        ],
+        "description": "Minipage"
+    },
+
+    "Warning": {
+        "prefix": ["warn", "warning" ],
+        "body": [
+            "\\warningbox{",
+            "\t$1",
+            "}"
+        ],
+        "description": "Warning from awesomebox"
+    }
+
+}
