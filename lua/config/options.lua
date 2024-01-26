@@ -10,9 +10,14 @@
 vim.opt.colorcolumn = "100"
 vim.opt.virtualedit = "onemore"
 vim.opt.completeopt = "menuone,preview"
-vim.opt.smarttab = false -- insert spaces instead of tabs
+vim.opt.smarttab = true -- insert spaces instead of tabs
 vim.opt.tabstop = 4 -- number of spaces a tab counts for
-vim.opt.expandtab = true
+vim.opt.shiftwidth = 0
+vim.opt.softtabstop = -1
+vim.opt.expandtab = false
+-- vim.opt.ts = 4
+-- vim.opt.sw = 4
+-- vim.opt.ai = true
 vim.opt.smartindent = true -- before false
 vim.opt.filetype = "none" -- Defaut ft when no extension
 vim.opt.undofile = true

@@ -21,23 +21,21 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "*",
   command = "highlight ColorColumn guibg=Red",
 })
---
+
 vim.api.nvim_create_autocmd("User", {
   desc = "no auto comment after pressing o",
   pattern = "*",
   command = "setlocal formatoptions-=o",
 })
 --
-vim.api.nvim_create_autocmd({ "BufLeave *.tex", "VimLeave *.tex" }, {
+vim.api.nvim_create_autocmd({ "BufLeave", "VimLeave " }, {
   desc = "Move .pdf to main folder",
   pattern = "*.tex",
   command = "silent !mv build/*.pdf .",
 })
 
-vim.api.nvim_create_augroup("Templates", {})
-vim.api.nvim_create_autocmd("BufNewFile *.cpp", {
-  desc = "Set template for cpp files",
-  pattern = "*.cpp",
-  group = "Templates",
-  command = "0r /home/cbr/.vim/templates/skeleton.cpp",
-})
+-- vim.api.nvim_create_autocmd({ "BufNewFile" }, {
+--   desc = "Load cpp template",
+--   pattern = "*.cpp",
+--   command = "silent 0r ~/.vim/templates/skeleton.cpp",
+-- })
