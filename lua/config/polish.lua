@@ -27,12 +27,6 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "*",
   command = "setlocal formatoptions-=o",
 })
---
-vim.api.nvim_create_autocmd({ "BufLeave", "VimLeave " }, {
-  desc = "Move .pdf to main folder",
-  pattern = "*.tex",
-  command = "silent !mv build/*.pdf .",
-})
 
 -- vim.api.nvim_create_autocmd({ "BufNewFile" }, {
 --   desc = "Load cpp template",
