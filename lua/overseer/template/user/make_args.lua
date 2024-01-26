@@ -1,5 +1,5 @@
 return {
-  name = "Make",
+  name = "Make with Args",
   builder = function()
     -- Full path to current file (see :help expand())
     local file = vim.fn.expand "%:p"
@@ -14,12 +14,17 @@ return {
       end
     end
     vim.cmd("cd " .. root_dir())
+    local args = function()
+      local args = vim.fn.input "Enter args: "
+      local args_list = { "&&", "./main" }
+      for arg in string.gmatch(args, "%S+") do
+        table.insert(args_list, arg)
+      end
+      return args_list
+    end
     return {
       cmd = { "make" },
-      args = {
-        "&&",
-        cwd .. "/main",
-      },
+      args = args(),
       components = {
         -- { "on_output_quickfix", set_diagnostics = true },
         "on_result_diagnostics",

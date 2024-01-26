@@ -22,7 +22,19 @@ return {
       -- strategy = "terminal",
       strategy = "toggleterm",
       -- Template modules to load
-      templates = { "builtin", "user.cpp", "user.python", "user.java", "user.make", "user.sql", "user.octave" },
+      templates = {
+        "builtin",
+        "user.cpp",
+        "user.cpp_args",
+        "user.python",
+        "user.python_args",
+        "user.java",
+        "user.java_args",
+        "user.make",
+        "user.make_args",
+        "user.sql",
+        "user.octave",
+      },
       -- When true, tries to detect a green color from your colorscheme to use for success highlight
       auto_detect_success_color = true,
       -- Patch nvim-dap to support preLaunchTask and postDebugTask
