@@ -38,6 +38,23 @@ return {
       --   },
       -- },
 
+      compile = {
+        {
+          event = "VimEnter",
+          pattern = "*.tex",
+          group = "compile",
+          command = "VimtexCompile",
+          desc = "Compile tex file on opening",
+        },
+        {
+          event = "VimEnter",
+          pattern = "*.typ",
+          group = "compile",
+          command = "TypstWatch",
+          desc = "Compile typst file on opening",
+        },
+      },
+
       templates = {
         {
           event = "BufNewFile",

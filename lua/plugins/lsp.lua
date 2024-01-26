@@ -48,7 +48,32 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      clangd = {
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--suggest-missing-includes",
+          "--clang-tidy",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--fallback-style=Chromium",
+        },
+        init_options = {
+          clangdFileStatus = true,
+          usePlaceholders = true,
+          completeUnimported = true,
+        },
+        capabilities = { offsetEncoding = "utf-8" },
+      },
+      typst_lsp = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern("typst.toml", ".git")(fname) or vim.fn.getcwd()
+        end,
+        settings = {
+          exportPdf = "onType", -- Choose onType, onSave or never.
+          -- serverPath = "" -- Normally, there is no need to uncomment it.
+        },
+      },
     },
     -- customize how language servers are attached
     setup_handlers = {

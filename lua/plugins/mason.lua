@@ -15,7 +15,8 @@ return {
         "jdtls",
         "clangd",
         "sqlls",
-        "pyright"
+        "pyright",
+        "typst_lsp"
         -- add more arguments for adding more language servers
       )
     end,
