@@ -167,8 +167,8 @@ return {
         ["<Leader>r"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
       },
       c = {
-        ["<C-j>"] = { "<C-n>", desc = "Move down in command mode" },
-        ["<C-k>"] = { "<C-p>", desc = "Move up in command mode" },
+        ["<C-j>"] = { "<Tab>", desc = "Move down in command mode" },
+        ["<C-k>"] = { "<S-Tab>", desc = "Move up in command mode" },
       },
     },
   },
