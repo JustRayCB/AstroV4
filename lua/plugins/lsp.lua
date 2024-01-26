@@ -74,6 +74,35 @@ return {
         --   desc = "Toggle LSP semantic highlight (buffer)",
         --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
         -- },
+        -- Restart LSP ser ver
+        ["<leader>rl"] = { "<cmd>LspRestart<cr>", desc = "Restart LSP server" },
+        ["<leader>o"] = {
+          function()
+            local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
+            local root_dir = function()
+              if not require("lspconfig.util").root_pattern(root_markers)(vim.fn.getcwd()) then -- If there I just want to code outside a project
+                return vim.fn.getcwd()
+              else
+                return require("lspconfig.util").root_pattern(root_markers)(vim.fn.getcwd())
+              end
+            end
+            vim.cmd("cd " .. root_dir())
+            require("telescope.builtin").find_files {
+              prompt_title = "Fichiers",
+              attach_mappings = function(_, map)
+                map("i", "<CR>", function(prompt_bufnr)
+                  local picker = prompt_bufnr
+                  local selection = require("telescope.actions.state").get_selected_entry()
+                  vim.fn.execute("silent !wslview '" .. selection.path .. "'")
+                  require("telescope.actions").close(picker)
+                end)
+                return true
+              end,
+            }
+          end,
+          desc = "Open file with wslview from the root of the project",
+        },
+        ["<leader>fu"] = { "<cmd>Telescope lsp_document_symbols<cr>", desc = "Telescope LSP documents symbols " },
       },
     },
   },
