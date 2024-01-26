@@ -8,6 +8,13 @@ return {
         progress = {
           enabled = false,
         },
+        -- Disabled them cause ther is a conflict with something else
+        hover = {
+          enabled = false,
+        },
+        signature = {
+          enabled = false,
+        },
       },
       presets = {
         bottom_search = true,
