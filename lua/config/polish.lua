@@ -2,42 +2,11 @@
 -- augroups/autocommands and custom filetypes also this just pure lua so
 -- anything that doesn't fit in the normal config locations above can go here
 
--- vim.api.nvim_create_autocmd("User", {
---   desc = "Hightlight colorcolumn",
---   pattern = "*",
---   command = "highlight ColorColumn guibg=Red",
--- })
---
--- vim.api.nvim_create_autocmd("User", {
---   desc = "no auto comment after pressing o",
---   pattern = "*",
---   command = "setlocal formatoptions-=o",
--- })
---
--- vim.api.nvim_create_autocmd({ "BufLeave *.tex", "VimLeave *.tex" }, {
---   desc = "Move .pdf to main folder",
---   pattern = "*.tex",
---   command = "silent !mv build/*.pdf .",
--- })
--- --
--- vim.api.nvim_create_autocmd({ "BufEnter *.uml", "VimEnter *.uml" }, {
---   desc = "Set filetype to plantuml",
---   pattern = "*.uml",
---   command = "set ft=plantuml",
--- })
--- Set up custom filetypes
--- vim.filetype.add {
---   extension = {
---     uml = "plantuml",
---     puml = "plantuml",
---     foo = "fooscript",
---   },
--- }
+-- This has to be before other autocommands because if not it will not work
 vim.filetype.add {
   extension = {
     foo = "fooscript",
-    sql = "mysql",
-    plantuml = "uml",
+    uml = "plantuml",
   },
   filename = {
     ["Foofile"] = "fooscript",
@@ -46,3 +15,29 @@ vim.filetype.add {
     ["~/%.config/foo/.*"] = "fooscript",
   },
 }
+
+vim.api.nvim_create_autocmd("User", {
+  desc = "Hightlight colorcolumn",
+  pattern = "*",
+  command = "highlight ColorColumn guibg=Red",
+})
+--
+vim.api.nvim_create_autocmd("User", {
+  desc = "no auto comment after pressing o",
+  pattern = "*",
+  command = "setlocal formatoptions-=o",
+})
+--
+vim.api.nvim_create_autocmd({ "BufLeave *.tex", "VimLeave *.tex" }, {
+  desc = "Move .pdf to main folder",
+  pattern = "*.tex",
+  command = "silent !mv build/*.pdf .",
+})
+
+vim.api.nvim_create_augroup("Templates", {})
+vim.api.nvim_create_autocmd("BufNewFile *.cpp", {
+  desc = "Set template for cpp files",
+  pattern = "*.cpp",
+  group = "Templates",
+  command = "0r /home/cbr/.vim/templates/skeleton.cpp",
+})

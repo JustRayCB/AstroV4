@@ -5,10 +5,23 @@
 -- vim.opt.relativenumber = true -- sets vim.opt.relativenumber
 -- vim.opt.number = true -- sets vim.opt.number
 -- vim.opt.spell = false -- sets vim.opt.spell
--- vim.opt.signcolumn = "auto" -- sets vim.opt.signcolumn to auto
+-- vim.opt.signcolumn = "auto" -- sets vim.opt.signcolumn to auto (auto:1-5)
 -- vim.opt.wrap = false -- sets vim.opt.wrap
-
--- vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "100"
+vim.opt.virtualedit = "onemore"
+vim.opt.completeopt = "menuone,preview"
+vim.opt.smarttab = false -- insert spaces instead of tabs
+vim.opt.tabstop = 4 -- number of spaces a tab counts for
+vim.opt.expandtab = true
+vim.opt.smartindent = true -- before false
+vim.opt.filetype = "none" -- Defaut ft when no extension
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv "HOME" .. "/.local/share/AstroNvim/tmp/undodir"
+vim.opt.backupdir = os.getenv "HOME" .. "/.local/share/AstroNvim/tmp/backupdir"
+vim.opt.directory = os.getenv "HOME" .. "/.local/share/AstroNvim/tmp/swap"
+vim.opt.autochdir = false -- Change directory to current file
 
 -- vim.g.mapleader = " " -- sets vim.g.mapleader
 -- vim.g.icons_enabled = false -- disable icons in the UI (disable if no nerd font is available)
+vim.g.ultimate_autopair_enabled = true
+vim.g.diagnostics_mode = 3
