@@ -164,7 +164,7 @@ return {
         -- ["m"] = { "w", desc = "one word to the left" },
         ["<"] = { "<gv^", desc = "Keep visual mode after Indent left" },
         [">"] = { ">gv^", desc = "Keep visual mode after Indent right" },
-        ["r"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
+        ["<Leader>r"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
       },
       c = {
         ["<C-j>"] = { "<C-n>", desc = "Move down in command mode" },
