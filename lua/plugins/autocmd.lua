@@ -43,14 +43,14 @@ return {
           event = "VimEnter",
           pattern = "*.tex",
           group = "compile",
-          command = "VimtexCompile",
+          command = "silent VimtexCompile",
           desc = "Compile tex file on opening",
         },
         {
           event = "VimEnter",
           pattern = "*.typ",
           group = "compile",
-          command = "TypstWatch",
+          command = "silent TypstWatch",
           desc = "Compile typst file on opening",
         },
       },
@@ -62,6 +62,25 @@ return {
           group = "templates",
           command = "silent 0r ~/.vim/templates/skeleton.cpp",
           desc = "Load cpp template",
+        },
+      },
+
+      typst = {
+        {
+          event = "VimEnter",
+          pattern = "*.typ",
+          group = "typst",
+          desc = "Set indentation to 4 spaces and deactivate autoindent, expandtab, and smartindent",
+          callback = function()
+            vim.opt_local.tabstop = 4
+            vim.opt_local.shiftwidth = 4
+            vim.opt_local.softtabstop = 4
+            vim.opt_local.autoindent = false
+            vim.opt_local.expandtab = false
+            vim.opt_local.smartindent = true
+            vim.opt_local.smarttab = false
+            vim.opt_local.indentexpr = ""
+          end,
         },
       },
     },

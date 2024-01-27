@@ -1,120 +1,104 @@
 {
-    "Section" :{
-        "prefix": ["section", "heading"],
-        "body": [
-            "= ${1:Section Name}"
-        ],
-        "description": "Section"
-    },
-    "Subsection" :{
-        "prefix": ["subsection", "subheading"],
-        "body": [
-            "== ${1:Subsection Name}"
-        ],
-        "description": "Subsection"
-    },
-    "Subsubsection" :{
-        "prefix": ["subsubsection", "subsubheading"],
-        "body": [
-            "=== ${1:Subsubsection Name}"
-        ],
-        "description": "Subsubsection"
-    },
+  "Section": {
+    "prefix": ["section", "heading"],
+    "body": ["= ${1:Section Name}"],
+    "description": "Section"
+  },
+  "Subsection": {
+    "prefix": ["subsection", "subheading"],
+    "body": ["== ${1:Subsection Name}"],
+    "description": "Subsection"
+  },
+  "Subsubsection": {
+    "prefix": ["subsubsection", "subsubheading"],
+    "body": ["=== ${1:Subsubsection Name}"],
+    "description": "Subsubsection"
+  },
 
-    "Ordered List" :{
-        "prefix": ["ol", "orderedlist"],
-        "body": [
-            "+ ${1:Item 1}",
-            "+ ${2:Item 2}",
-            "+ ${3:Item 3}"
-        ],
-        "description": "Ordered List"
-    },
+  "Ordered List": {
+    "prefix": ["ol", "orderedlist"],
+    "body": ["+ ${1:Item 1}", "+ ${2:Item 2}", "+ ${3:Item 3}"],
+    "description": "Ordered List"
+  },
 
-    "Unordered List" :{
-        "prefix": ["ul", "unorderedlist"],
-        "body": [
-            "- ${1:Item 1}",
-            "- ${2:Item 2}",
-            "- ${3:Item 3}"
-        ],
-        "description": "Unordered List"
-    },
+  "Unordered List": {
+    "prefix": ["ul", "unorderedlist"],
+    "body": ["- ${1:Item 1}", "- ${2:Item 2}", "- ${3:Item 3}"],
+    "description": "Unordered List"
+  },
 
-    "Image" :{
-        "prefix": ["img", "image"],
-        "body": [
-            "#image(\"${1:Image Name}\", width: ${2:70}%)"
-        ],
-        "description": "Insert an Image"
-    },
+  "Image": {
+    "prefix": ["img", "image"],
+    "body": ["#image(\"${1:Image Name}\", width: ${2:70}%)"],
+    "description": "Insert an Image"
+  },
 
-    "Figure" :{
-        "prefix": ["fig", "figure"],
-        "body": [
-            "#figure(",
-            "\timage(\"${1:Image Name}\", width: ${2:70}%),",
-            "\tcaption: [",
-            "\t\t${3:Caption}",
-            "\t],",
-            ")<${4:figureName}>"
-        ],
-        "description": "Insert a Figure"
-    },
+  "Figure": {
+    "prefix": ["fig", "figure"],
+    "body": [
+      "#figure(",
+      "\timage(\"${1:Image Name}\", width: ${2:70}%),",
+      "\tcaption: [",
+      "\t\t${3:Caption}",
+      "\t],",
+      ")<${4:figureName}>"
+    ],
+    "description": "Insert a Figure"
+  },
 
-    "InlineMath" :{
-        "prefix": ["im", "ie"],
-        "body":[
-            "$$1$"
-        ],
-        "description": "Insert Inline math equation"
-    },
-    "Math Equation" :{
-        "prefix": ["equation", "eq", "math"],
-        "body":[
-            "$ $1 $"
-        ],
-        "description": "Insert math equation"
-    },
+  "InlineMath": {
+    "prefix": ["im", "ie"],
+    "body": ["$$1$"],
+    "description": "Insert Inline math equation"
+  },
+  "Math Equation": {
+    "prefix": ["equation", "eq", "math"],
+    "body": ["$ $1 $"],
+    "description": "Insert math equation"
+  },
 
-    "Sum" :{
-        "prefix": ["sum"],
-        "body" : [
-            "sum_(${1:i=0})^(n) $2 "
-        ],
-        "description": "Sum function, sigma"
-    },
+  "Sum": {
+    "prefix": ["sum"],
+    "body": ["sum_(${1:i=0})^(${2:n}) $3 "],
+    "description": "Sum function, sigma"
+  },
 
-    "Fraction" :{
-        "prefix" :["frac"],
-        "body" :[
-            "(${1:num}) / (${2:denom}) "
-        ],
-        "description": "Fraction"
-    },
+  "Fraction": {
+    "prefix": ["frac"],
+    "body": ["(${1:num}) / (${2:denom}) "],
+    "description": "Fraction"
+  },
 
-    "Italic" :{
-        "prefix": ["i", "ita"],
-        "body" :[
-            "_$1_ "
-        ]
-    },
+  "Italic": {
+    "prefix": ["i", "ita"],
+    "body": ["_$1_ "]
+  },
 
-    "Bold" :{
-        "prefix": ["b", "bold"],
-        "body" :[
-            "*$1* "
-        ]
-    }, 
+  "Bold": {
+    "prefix": ["b", "bold"],
+    "body": ["*$1* "]
+  },
 
-    "Code": {
-        "prefix": ["code"],
-        "body" :[
-            "#sourcecode[```$1",
-            "$2",
-            "```]"
-        ],
-        "description": "Code block typst"
-    }
+  "Code": {
+    "prefix": ["code"],
+    "body": ["#sourcecode[```$1", "$2", "```]"],
+    "description": "Code block typst"
+  },
 
+  "Underline": {
+    "prefix": ["u", "underline"],
+    "body": ["#underline[$1]"]
+  },
+
+  "Color": {
+    "prefix": ["c", "co", "color"],
+    "body": ["#text(${1:green})[$2]"]
+  },
+
+  "Quote": {
+    "prefix": ["q", "quote"],
+    "body": [
+      "#quote(block: ${1:true}, quotes: ${2:true}, attribution: \"${3:Author}\")[$4]"
+    ]
+  }
 }

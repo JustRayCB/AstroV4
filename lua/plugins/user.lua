@@ -57,7 +57,7 @@ return {
     "michaelb/sniprun",
     keys = {},
     lazy = true,
-    ft = {"py", "cpp", "java", "c", "rust"},
+    ft = { "py", "cpp", "java", "c", "rust" },
     opts = {
       display = {
         -- "Classic",
