@@ -28,6 +28,7 @@ return {
         "user.cpp_args",
         "user.python",
         "user.python_args",
+        "user.python_flags",
         "user.java",
         "user.java_args",
         "user.make",
