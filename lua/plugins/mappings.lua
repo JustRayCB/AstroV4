@@ -166,9 +166,11 @@ return {
         [">"] = { ">gv^", desc = "Keep visual mode after Indent right" },
         ["<Leader>r"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
       },
-      c = {
-        ["<C-j>"] = { "<Tab>", desc = "Move down in command mode" },
-        ["<C-k>"] = { "<S-Tab>", desc = "Move up in command mode" },
+      C = {
+        -- ["<C-j>"] = { "<Tab>", desc = "Move down in command mode" },
+        -- ["<C-k>"] = { "<S-Tab>", desc = "Move up in command mode" },
+        ["<Tab>"] = false,
+        ["<s-Tab>"] = false,
       },
     },
   },
