@@ -110,6 +110,8 @@ return {
     end,
   },
   {
+    -- Cause the closing ( or } to be more indented than the opening one.
+    enabled = false,
     "kaarmu/typst.vim",
     ft = "typst",
     -- lazy=false,
