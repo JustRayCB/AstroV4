@@ -3,6 +3,8 @@
 -- AstroCore provides a central place to modify mappings set up as well as which-key menu titles
 ---@type LazySpec
 return {
+  -- Mappings can be configured through AstroCore as well.
+  -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
