@@ -17,7 +17,8 @@ return {
       "cpp",
       "c",
       "latex",
-      "markdown"
+      "markdown",
+      "javascript"
       -- add more arguments for adding more treesitter parsers
     )
   end,
