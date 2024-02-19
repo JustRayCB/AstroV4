@@ -27,6 +27,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.html-css" },
   {
     "mfussenegger/nvim-jdtls",
     opts = function(_, opts)
