@@ -3,9 +3,9 @@ return {
   dependencies = {
     "hrsh7th/cmp-calc",
     "hrsh7th/cmp-emoji",
-    "jc-doyle/cmp-pandoc-references",
-    "kdheepak/cmp-latex-symbols",
-    "mstanciu552/cmp-octave",
+    -- "jc-doyle/cmp-pandoc-references",
+    -- "kdheepak/cmp-latex-symbols",
+    -- "mstanciu552/cmp-octave",
     "hrsh7th/cmp-path",
   },
   opts = function(_, opts)
@@ -54,8 +54,8 @@ return {
       { name = "nvim_lsp", priority = 1000 },
       -- { name = "vim-dadbod-completion", priority = 800 },
       -- { name = "cmp_octave", priority = 800 },
-      { name = "pandoc_references", priority = 725 },
-      { name = "latex_symbols", priority = 700 },
+      -- { name = "pandoc_references", priority = 725 },
+      -- { name = "latex_symbols", priority = 700 },
       { name = "calc", priority = 650 },
       {
         name = "path",
