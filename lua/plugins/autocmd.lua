@@ -84,31 +84,31 @@ return {
         },
       },
 
-      rooter = {
-        {
-          event = "BufEnter",
-          pattern = "*",
-          group = "rooter",
-          -- command = "silent Rooter",
-          callback = function()
-            local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
-            local root_dir = function()
-              local server = require "lspconfig.util"
-              if server then
-                if not server.root_pattern(root_markers)(vim.fn.getcwd()) then -- If there I just want to code outside a project
-                  return vim.fn.getcwd()
-                else
-                  return server.root_pattern(root_markers)(vim.fn.getcwd())
-                end
-              else
-                return vim.fn.getcwd()
-              end
-            end
-            vim.cmd("cd " .. root_dir())
-          end,
-          desc = "Change directory to root of project",
-        },
-      },
+      -- myrooter = {
+      --   {
+      --     event = "BufEnter",
+      --     pattern = "*",
+      --     group = "myrooter",
+      --     -- command = "silent Rooter",
+      --     callback = function()
+      --       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
+      --       local root_dir = function()
+      --         local server = require "lspconfig.util"
+      --         if server then
+      --           if not server.root_pattern(root_markers)(vim.fn.getcwd()) then -- If there I just want to code outside a project
+      --             return vim.fn.getcwd()
+      --           else
+      --             return server.root_pattern(root_markers)(vim.fn.getcwd())
+      --           end
+      --         else
+      --           return vim.fn.getcwd()
+      --         end
+      --       end
+      --       vim.cmd("cd " .. root_dir())
+      --     end,
+      --     desc = "Change directory to root of project",
+      --   },
+      -- },
 
       templates = {
         {
