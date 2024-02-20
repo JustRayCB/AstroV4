@@ -14,5 +14,8 @@ return {
   { import = "astrocommunity.pack.java" }, -- modified in plugins/community.lua
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.html-css" },
+  -- { import = "astrocommunity.code-runner.compiler-nvim" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.test.neotest" },
   -- import/override with your plugins folder
 }

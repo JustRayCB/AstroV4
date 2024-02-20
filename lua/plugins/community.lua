@@ -38,4 +38,28 @@ return {
       return utils.extend_tbl({ root_dir = root_dir() }, opts)
     end,
   },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      -- "nvim-neotest/neotest-python",
+      "rcasia/neotest-java",
+      "antoinemadec/FixCursorHold.nvim",
+      "vim-test/vim-test",
+      "nvim-neotest/neotest-vim-test",
+    },
+    config = function()
+      require("neotest").setup {
+        adapters = {
+          require "neotest-python" {
+            dap = { justMyCode = false },
+            runner = "pytest",
+          },
+          require "neotest-java" { ignore_wrapper = false },
+          require "neotest-vim-test" {
+            ignore_file_types = { "python", "vim", "lua", "javascript", "typescript" },
+          },
+        },
+      }
+    end,
+  },
 }
