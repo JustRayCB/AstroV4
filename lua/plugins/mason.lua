@@ -9,16 +9,15 @@ return {
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         "lua_ls",
         "jdtls",
         "clangd",
         "sqlls",
         "pyright",
-        "typst_lsp"
+        "typst_lsp",
         -- add more arguments for adding more language servers
-      )
+      })
     end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
@@ -27,12 +26,11 @@ return {
     -- overrides `require("mason-null-ls").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
-        "prettier"
-        -- "stylua"
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+        "prettier",
+        "stylua",
         -- add more arguments for adding more null-ls sources
-      )
+      })
     end,
   },
   {
@@ -40,17 +38,16 @@ return {
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = require("astrocore").list_insert_unique(
-        opts.ensure_installed,
+      opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- "python"
         "cpptools",
         "codelldb",
-        "debugpy"
-        -- "javadbg",
+        "debugpy",
+        "javadbg",
         -- "java-debug-adapter",
-        -- "java-test"
+        "java-test",
         -- add more arguments for adding more debuggers
-      )
+      })
     end,
   },
 }
