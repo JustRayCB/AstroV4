@@ -26,6 +26,7 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     opts = function(_, opts)
+      vim.api.nvim_set_keymap("n", "<leader>lr", ":IncRename ", { noremap = false })
       local utils = require "astrocore"
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
       local root_dir = function()
@@ -48,6 +49,7 @@ return {
       "nvim-neotest/neotest-vim-test",
     },
     config = function()
+      ---@diagnostic disable: missing-fields
       require("neotest").setup {
         adapters = {
           require "neotest-python" {
