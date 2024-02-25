@@ -12,7 +12,7 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.java" }, -- modified in plugins/community.lua
-  -- { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.code-runner.compiler-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
