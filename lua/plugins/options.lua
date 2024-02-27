@@ -46,6 +46,7 @@ return {
         ultimate_autopair_enabled = true,
         diagnostics_mode = 3,
         python3_host_prog = "/usr/bin/python3",
+        nonels_supress_issue58 = true,
       },
     },
     rooter = {
