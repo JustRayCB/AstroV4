@@ -69,7 +69,11 @@ return {
           event = "VimEnter",
           pattern = "*.tex",
           group = "compile",
-          command = "silent VimtexCompile",
+          -- command = "silent VimtexCompile",
+          callback = function()
+            vim.cmd "silent VimtexCompile"
+            vim.cmd "TSDisable highlight" -- This is a workaround for the bug in nvim-ufo and treesitter delete ts latex
+          end,
           desc = "Compile tex file on opening",
         },
         {
