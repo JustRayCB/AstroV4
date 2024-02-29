@@ -150,10 +150,18 @@ return {
         ["gbt"] = { "<cmd>GitBlameToggle<cr>", desc = "Toggle GitBlame" },
         ["gbf"] = { "<cmd>GitBlameOpenFileURL<cr>", desc = "Open the file url in github" },
         ["gbco"] = { "<cmd>GitBlameOpenCommitURL<cr>", desc = "Open the commit url in github" },
-        ["<C-a>"] = { "ggVG", desc = "Select all the text from a file" },
+
+        ["<C-q>"] = { "<C-V>", desc = "Visual block mode" },
+        ["gv"] = { desc = "Reselect last visual selection" },
+        ["<A-j>"] = { "<cmd>m .+1<cr>==", desc = "Move line up" },
+        ["<A-k>"] = { "<cmd>m .-2<cr>==", desc = "Move line up" },
 
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      },
+      i = {
+        ["<A-j>"] = { "<esc>:m .+1<cr>==gi", desc = "Move line up" },
+        ["<A-k>"] = { "<esc>:m .-2<cr>==gi", desc = "Move line up" },
       },
       t = {
         ["<esc>"] = false,
@@ -167,6 +175,10 @@ return {
         ["<"] = { "<gv^", desc = "Keep visual mode after Indent left" },
         [">"] = { ">gv^", desc = "Keep visual mode after Indent right" },
         ["<Leader>r"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
+        -- ["J"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down" },
+        -- ["K"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up" },
+        ["<A-j>"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down" },
+        ["<A-k>"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up" },
       },
       c = {
         -- ["<C-j>"] = { "<Tab>", desc = "Move down in command mode" },
