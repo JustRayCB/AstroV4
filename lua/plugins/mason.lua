@@ -44,7 +44,7 @@ return {
         "codelldb",
         "debugpy",
         "javadbg",
-        -- "java-debug-adapter",
+        "java-debug-adapter",
         "java-test",
         -- add more arguments for adding more debuggers
       })
