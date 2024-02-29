@@ -15,9 +15,9 @@ return {
       "java",
       "cpp",
       "c",
-      "latex",
       "markdown",
       "javascript",
+      "bibtex",
       -- add more arguments for adding more treesitter parsers
     })
   end,
