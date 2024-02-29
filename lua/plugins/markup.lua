@@ -1,8 +1,11 @@
 return {
+  -- install with yarn or npm
   {
     "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
-    ft = { "markdown", "md" },
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
   },
   {
     "lervag/vimtex",
@@ -111,15 +114,16 @@ return {
   },
   {
     -- Cause the closing ( or } to be more indented than the opening one.
-    enabled = false,
+    enabled = true,
     "kaarmu/typst.vim",
     ft = "typst",
-    -- lazy=false,
+    lazy = false,
     init = function()
       vim.g.typst_pdf_viewer = "/mnt/c/Users/Craya/AppData/Local/SumatraPDF/SumatraPDF.exe"
       vim.g.typst_conceal = 1
       -- vim.g.typst_conceal_emoji = true
       -- vim.g.typst_conceal_math = true
+      vim.g.typst_embedded_languages = { "latex", "cpp", "java", "python", "bash" }
     end,
   },
   {
