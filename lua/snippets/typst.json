@@ -1,41 +1,41 @@
 {
   "Section": {
-    "prefix": ["sec", "section"],
-    "body": ["= ${1:Section Name} <s:${2:ref}>"],
+    "prefix": ["h"],
+    "body": ["= ${1:Heading Name} <h:${2:ref}>"],
     "description": "Section"
   },
   "Subsection": {
-    "prefix": ["sub", "subsection"],
-    "body": ["== ${1:Subsection Name} <sub:${2:ref}>"],
+    "prefix": ["sh"],
+    "body": ["== ${1:Subheading Name} <sh:${2:ref}>"],
     "description": "Subsection"
   },
   "Subsubsection": {
-    "prefix": ["subs", "subsubsection"],
-    "body": ["=== ${1:Subsubsection Name} <subsub:${2:ref}>"],
+    "prefix": ["ssh"],
+    "body": ["=== ${1:SubsubheadingName} <ssh:${2:ref}>"],
     "description": "Subsubsection"
   },
   "Subsubsubsection": {
-    "prefix": ["subsub", "subsubsubsection"],
-    "body": ["==== ${1:Subsubsubsection Name} <subsubsub:${2:ref}>"],
+    "prefix": ["sssh"],
+    "body": ["==== ${1:Subsubsubheading Name} <sssh:${2:ref}>"],
     "description": "Subsubsubsection"
   },
   "Ordered List": {
-    "prefix": ["ol", "orderedlist"],
+    "prefix": ["ol"],
     "body": ["+ ${1:Item 1}", "+ ${2:Item 2}", "+ ${3:Item 3}"],
     "description": "Ordered List"
   },
   "Unordered List": {
-    "prefix": ["ul", "unorderedlist"],
+    "prefix": ["ul"],
     "body": ["- ${1:Item 1}", "- ${2:Item 2}", "- ${3:Item 3}"],
     "description": "Unordered List"
   },
   "Image": {
-    "prefix": ["img", "image"],
+    "prefix": ["img"],
     "body": ["#image(\"${1:Image Name}\", width: ${2:70}%)"],
     "description": "Insert an Image"
   },
   "Figure": {
-    "prefix": ["fig", "figure"],
+    "prefix": ["fig"],
     "body": [
       "#figure(",
       "\timage(\"${1:Image Name}\", width: ${2:70}%),",
@@ -52,7 +52,7 @@
     "description": "Insert Inline math equation"
   },
   "Math Equation": {
-    "prefix": ["equation", "eq", "math"],
+    "prefix": ["eq", "math"],
     "body": ["$ $1 $"],
     "description": "Insert math equation"
   },
@@ -67,11 +67,11 @@
     "description": "Fraction"
   },
   "Italic": {
-    "prefix": ["i", "ita"],
+    "prefix": ["i"],
     "body": ["_$1_ "]
   },
   "Bold": {
-    "prefix": ["b", "bold"],
+    "prefix": ["b"],
     "body": ["*$1* "]
   },
   "Code": {
@@ -80,15 +80,15 @@
     "description": "Code block typst"
   },
   "Underline": {
-    "prefix": ["u", "underline"],
+    "prefix": ["u"],
     "body": ["#underline[$1]"]
   },
   "Color": {
-    "prefix": ["c", "co", "color"],
+    "prefix": ["clr"],
     "body": ["#text(${1:green})[$2]"]
   },
   "Quote": {
-    "prefix": ["q", "quote"],
+    "prefix": ["qte"],
     "body": [
       "#quote(block: ${1:true}, quotes: ${2:true}, attribution: \"${3:Author}\")[$4]"
     ]
@@ -103,13 +103,18 @@
     "description": "Definition box"
   },
   "Highlight": {
-    "prefix": ["hl", "highlight"],
-    "body": ["#hl(color: ${1:aqua})[${2:Text}]"],
+    "prefix": ["hl"],
+    "body": ["#highlight(fill: ${1:aqua})[${2:Text}]"],
     "description": "Highlight text"
   },
   "Proof": {
     "prefix": ["proof"],
     "body": ["#proof[${1:Title}][", "\t${2:Proof}", "]<${3:ref}>"],
     "description": "Proof box"
+  },
+  "Term": {
+    "prefix": ["trm"],
+    "body": ["/ ${1:Term}: ${2:Definition}."],
+    "description": "Term definition"
   }
 }
