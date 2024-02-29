@@ -29,6 +29,8 @@ return {
         virtualedit = "onemore",
         completeopt = "menuone,preview",
         autoindent = true,
+        smartindent = true,
+        smarttab = true,
         filetype = "none", -- Defaut ft when no extension,
         undofile = true,
         undodir = os.getenv "HOME" .. "/.local/share/AstroNvim/tmp/undodir",
