@@ -2,6 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = { -- add a new dependency to telescope that is our new plugin
     "nvim-telescope/telescope-media-files.nvim",
+    "ThePrimeagen/refactoring.nvim",
   },
   -- the first parameter is the plugin specification
   -- the second is the table of options as set up in Lazy with the `opts` key
@@ -11,6 +12,11 @@ return {
 
     -- require telescope and load extensions as necessary
     require("telescope").load_extension "media_files"
+    -- load refactoring Telescope extension
+    require("telescope").load_extension "refactoring"
+
+    vim.keymap.set({ "n", "x" }, "<leader>rr", function() require("telescope").extensions.refactoring.refactors() end)
+
     -- opts.extensions = {
     --   media_files = {
     --     -- filetypes whitelist
