@@ -15,9 +15,9 @@ return {
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,
-      -- null_ls.builtins.diagnostics.checkstyle.with {
-      --   extra_args = { "-c", "/google_checks.xml" }, -- or "/sun_checks.xml" or path to self written rules
-      -- },
+      null_ls.builtins.diagnostics.checkstyle.with {
+        extra_args = { "-c", "/sun_checks.xml" }, -- or "/sun_checks.xml" or path to self written rules
+      },
       null_ls.builtins.code_actions.refactoring.with {
         filetypes = { "lua", "python", "java", "cpp" },
       },
