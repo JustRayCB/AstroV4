@@ -174,7 +174,7 @@ return {
         -- ["m"] = { "w", desc = "one word to the left" },
         ["<"] = { "<gv^", desc = "Keep visual mode after Indent left" },
         [">"] = { ">gv^", desc = "Keep visual mode after Indent right" },
-        ["<Leader>r"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
+        ["<Leader>ru"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
         -- ["J"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down" },
         -- ["K"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up" },
         ["<A-j>"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down" },

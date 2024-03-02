@@ -85,8 +85,8 @@ return {
           callback = function()
             local filename_no_ext = vim.fn.expand "%:t:r"
             if filename_no_ext == "main" then vim.cmd "silent TypstPreview" end
-            vim.cmd "TSDisable indent" -- Weird indent in typst
-            vim.cmd "TSDisable highlight" -- Ignore the typst.vim concealement
+            vim.cmd "TSDisable highlight"
+            vim.cmd "TSDisable indent"
           end,
           desc = "Compile main typst file on opening",
         },
