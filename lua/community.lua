@@ -17,5 +17,6 @@ return {
   -- { import = "astrocommunity.code-runner.compiler-nvim" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.test.neotest" },
+  { import = "astrocommunity.git.diffview-nvim" },
   -- import/override with your plugins folder
 }
