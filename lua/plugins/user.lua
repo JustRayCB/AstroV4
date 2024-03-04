@@ -8,6 +8,10 @@ return {
     config = function() require("lsp_signature").setup() end,
   },
   {
+    "NvChad/nvim-colorizer.lua",
+    event = "VimEnter", -- Bug with dap python (dap.lua, overseer.lua, community.python)
+  },
+  {
     "Wansmer/treesj",
     keys = { "<space>m" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
