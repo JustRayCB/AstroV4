@@ -11,7 +11,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    -- lazy = false,
     config = function()
       require("tokyonight").setup {
 
