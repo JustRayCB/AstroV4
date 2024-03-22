@@ -1,5 +1,6 @@
 return {
   "ThePrimeagen/refactoring.nvim",
+  ft = { "java", "cpp", "c", "h", "hpp", "cxx", "python" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
