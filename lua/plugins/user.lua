@@ -73,8 +73,8 @@ return {
   },
   {
     "mg979/vim-visual-multi",
-    lazy = false,
     init = function() vim.g.VM_mouse_mappings = true end,
+    keys = { "<C-LeftMouse>" },
   },
   {
     "michaelb/sniprun",
