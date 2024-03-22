@@ -60,15 +60,15 @@ return {
     }
 
     -- Now that we have the component, we need a timer to emit the User UpdateTime event
-    vim.uv.new_timer():start( -- timer for updating the time
-      (60 - tonumber(os.date "%S")) * 1000, -- offset timer based on current seconds past the minute
-      60000, -- update every 60 seconds
-      vim.schedule_wrap(function()
-        vim.api.nvim_exec_autocmds( -- emit our new User event
-          "User",
-          { pattern = "UpdateTime", modeline = false }
-        )
-      end)
-    )
+    -- vim.uv.new_timer():start( -- timer for updating the time
+    --   (60 - tonumber(os.date "%S")) * 1000, -- offset timer based on current seconds past the minute
+    --   60000, -- update every 60 seconds
+    --   vim.schedule_wrap(function()
+    --     vim.api.nvim_exec_autocmds( -- emit our new User event
+    --       "User",
+    --       { pattern = "UpdateTime", modeline = false }
+    --     )
+    --   end)
+    -- )
   end,
 }
