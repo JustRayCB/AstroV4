@@ -15,8 +15,9 @@ return {
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.code-runner.compiler-nvim" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
+  -- { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.git.diffview-nvim" },
+  { import = "astrocommunity.lsp.garbage-day-nvim" },
   -- import/override with your plugins folder
 }
