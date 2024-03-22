@@ -10,6 +10,8 @@ return {
       "rcarriga/nvim-notify",
       "folke/edgy.nvim",
     },
+    event = "VeryLazy",
+    lazy = true,
     opts = {
       -- add any options here
       lsp = {
