@@ -17,6 +17,12 @@ return {
       cmp = true, -- enable completion at start
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
+      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = off)
+    },
+    -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
+    diagnostics = {
+      virtual_text = true,
+      underline = true,
     },
     -- vim options can be configured here
     options = {
@@ -30,7 +36,7 @@ return {
         virtualedit = "onemore",
         completeopt = "menuone,preview",
         autoindent = true,
-        smartindent = true,
+        smartindent = false, -- cause weird indent behavior by inserting #
         smarttab = true,
         filetype = "none", -- Defaut ft when no extension,
         undofile = true,
@@ -49,7 +55,7 @@ return {
         ultimate_autopair_enabled = true,
         diagnostics_mode = 3,
         python3_host_prog = "/usr/bin/python3",
-        nonels_supress_issue58 = true,
+        -- nonels_supress_issue58 = true,
       },
     },
     rooter = {
@@ -68,11 +74,11 @@ return {
         dirs = {}, -- list of directory patterns (Ex. { "~/.cargo/*" })
       },
       -- automatically update working directory (update manually with `:AstroRoot`)
-      autochdir = true,
+      autochdir = false,
       -- scope of working directory to change ("global"|"tab"|"win")
       scope = "global",
       -- show notification on every working directory change
-      notify = false,
+      notify = true,
     },
   },
 }
