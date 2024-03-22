@@ -117,7 +117,6 @@ return {
     enabled = true,
     "kaarmu/typst.vim",
     ft = "typst",
-    lazy = false,
     init = function()
       vim.g.typst_pdf_viewer = "/mnt/c/Users/Craya/AppData/Local/SumatraPDF/SumatraPDF.exe"
       vim.g.typst_conceal = 1
