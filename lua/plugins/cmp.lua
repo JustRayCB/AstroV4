@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-calc",
     "hrsh7th/cmp-emoji",
@@ -50,8 +51,8 @@ return {
 
     -- Setup sources priority
     opts.sources = cmp.config.sources {
+      { name = "nvim_lsp", priority = 1900 },
       { name = "luasnip", priority = 1750 },
-      { name = "nvim_lsp", priority = 1000 },
       -- { name = "vim-dadbod-completion", priority = 800 },
       -- { name = "cmp_octave", priority = 800 },
       -- { name = "pandoc_references", priority = 725 },
