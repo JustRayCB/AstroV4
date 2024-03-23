@@ -85,6 +85,7 @@ return {
           name = "Debug (Attach) - Remote",
           hostName = "127.0.0.1",
           port = 5005,
+          vmArgs = "--enable-preview",
         },
         {
           classpath = {},
@@ -94,6 +95,7 @@ return {
           request = "launch",
           type = "java",
           cwd = "${workspaceFolder}",
+          vmArgs = "--enable-preview",
         },
         {
           classpath = {},
@@ -104,6 +106,7 @@ return {
           type = "java",
           args = function() return vim.fn.input "Enter args: " end,
           cwd = "${workspaceFolder}",
+          vmArgs = "--enable-preview",
         },
       }
       -- dap.configurations.python = {
