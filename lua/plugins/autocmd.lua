@@ -38,31 +38,31 @@ return {
       --   },
       -- },
 
-      myrooter = {
-        {
-          event = "VimEnter",
-          pattern = "*",
-          group = "myrooter",
-          -- command = "silent Rooter",
-          callback = function()
-            local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
-            local root_dir = function()
-              local server = require "lspconfig.util"
-              if server then
-                if not server.root_pattern(root_markers)(vim.fn.getcwd()) then -- If there I just want to code outside a project
-                  return vim.fn.getcwd()
-                else
-                  return server.root_pattern(root_markers)(vim.fn.getcwd())
-                end
-              else
-                return vim.fn.getcwd()
-              end
-            end
-            vim.cmd("cd " .. root_dir())
-          end,
-          desc = "Change directory to root of project",
-        },
-      },
+      -- myrooter = {
+      --   {
+      --     event = "VimEnter",
+      --     pattern = "*",
+      --     group = "myrooter",
+      --     -- command = "silent Rooter",
+      --     callback = function()
+      --       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
+      --       local root_dir = function()
+      --         local server = require "lspconfig.util"
+      --         if server then
+      --           if not server.root_pattern(root_markers)(vim.fn.getcwd()) then -- If there I just want to code outside a project
+      --             return vim.fn.getcwd()
+      --           else
+      --             return server.root_pattern(root_markers)(vim.fn.getcwd())
+      --           end
+      --         else
+      --           return vim.fn.getcwd()
+      --         end
+      --       end
+      --       vim.cmd("cd " .. root_dir())
+      --     end,
+      --     desc = "Change directory to root of project",
+      --   },
+      -- },
 
       compile = {
         {
@@ -98,20 +98,6 @@ return {
           callback = function()
             local filename_no_ext = vim.fn.expand "%:t:r"
             if filename_no_ext == "main" then vim.cmd "silent ! typst compile %" end
-          end,
-        },
-      },
-
-      keybinds = {
-        {
-          event = "BufEnter",
-          pattern = "*",
-          desc = "Set commandline keybinds",
-          group = "keybinds",
-          callback = function()
-            -- Using this while cannot do otherwise because Astro mappings are broken ??
-            vim.cmd "cnoremap <c-k> <c-p>"
-            vim.cmd "cnoremap <c-j> <c-n>"
           end,
         },
       },

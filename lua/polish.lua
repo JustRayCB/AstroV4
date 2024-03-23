@@ -28,6 +28,16 @@ vim.api.nvim_create_autocmd("User", {
   command = "setlocal formatoptions-=o",
 })
 
+vim.cmd "cnoremap <c-k> <c-p>"
+vim.cmd "cnoremap <c-j> <c-n>"
+
+vim.api.nvim_create_autocmd("User", {
+  nested = true,
+  -- group = group,
+  desc = "Root detection when entering a buffer",
+  callback = function(args) require("astrocore.rooter").root(args.buf) end,
+})
+
 -- vim.api.nvim_create_autocmd({ "BufNewFile" }, {
 --   desc = "Load cpp template",
 --   pattern = "*.cpp",
