@@ -10,7 +10,7 @@ return {
       "rcarriga/nvim-notify",
       "folke/edgy.nvim",
     },
-    event = "VeryLazy",
+    event = "VimEnter",
     lazy = true,
     opts = {
       -- add any options here
