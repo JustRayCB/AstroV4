@@ -66,11 +66,11 @@ return {
       detector = {
         "lsp", -- highest priority is getting workspace from running language servers
         { ".git", "_darcs", ".hg", ".bzr", ".svn" }, -- next check for a version controlled parent directory
-        { "lua", "MakeFile", "package.json", "pom.xml" }, -- lastly check for known project root files
+        { "lua", "Makefile", "package.json", "pom.xml" }, -- lastly check for known project root files
       },
       -- ignore things from root detection
       ignore = {
-        servers = {}, -- list of language server names to ignore (Ex. { "efm" })
+        servers = { "clangd" }, -- list of language server names to ignore (Ex. { "efm" })
         dirs = {}, -- list of directory patterns (Ex. { "~/.cargo/*" })
       },
       -- automatically update working directory (update manually with `:AstroRoot`)
