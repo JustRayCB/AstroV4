@@ -10,8 +10,8 @@ return {
       "rcarriga/nvim-notify",
       "folke/edgy.nvim",
     },
-    event = "VimEnter",
-    lazy = true,
+    -- event = "VimEnter",
+    -- lazy = true,
     opts = {
       -- add any options here
       lsp = {
