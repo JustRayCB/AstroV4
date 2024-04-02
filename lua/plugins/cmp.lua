@@ -51,8 +51,8 @@ return {
 
     -- Setup sources priority
     opts.sources = cmp.config.sources {
-      { name = "nvim_lsp", priority = 1900 },
       { name = "luasnip", priority = 1750 },
+      { name = "nvim_lsp", priority = 1000 },
       -- { name = "vim-dadbod-completion", priority = 800 },
       -- { name = "cmp_octave", priority = 800 },
       -- { name = "pandoc_references", priority = 725 },
@@ -63,19 +63,6 @@ return {
         priority = 500,
         option = {
           trailing_slash = true,
-          get_cwd = function()
-            local server = require "lspconfig.util"
-            local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
-            if server then
-              if not server.root_pattern(root_markers)(vim.fn.getcwd()) then -- If there I just want to code outside a project
-                return vim.fn.getcwd()
-              else
-                return server.root_pattern(root_markers)(vim.fn.getcwd())
-              end
-            else
-              return vim.fn.getcwd()
-            end
-          end,
         },
       },
       { name = "buffer", priority = 250 },
