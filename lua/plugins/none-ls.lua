@@ -21,6 +21,10 @@ return {
       null_ls.builtins.code_actions.refactoring.with {
         filetypes = { "lua", "python", "java", "cpp" },
       },
+      -- null_ls.builtins.diagnostics.sqlfluff.with {
+      --   extra_args = { "--dialect", "sqlite" }, -- change to your dialect
+      --   filetypes = { "sql", "mysql" },
+      -- },
     }
     return config -- return final config table
   end,
