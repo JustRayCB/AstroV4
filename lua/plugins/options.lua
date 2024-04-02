@@ -78,7 +78,7 @@ return {
       -- scope of working directory to change ("global"|"tab"|"win")
       scope = "global",
       -- show notification on every working directory change
-      notify = true,
+      notify = false,
     },
   },
 }
