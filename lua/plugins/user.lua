@@ -18,6 +18,7 @@ return {
     config = function()
       require("treesj").setup {--[[ your config ]]
         use_default_keymaps = false,
+        max_join_length = 1000,
         -- vim.cmd "nnoremap <silent> <space>m <cmd>lua require('treesj').toggle()<cr>",
         -- vim.cmd "nnoremap <silent> <space>j <cmd>lua require('treesj').split()<cr>",
         -- vim.cmd "nnoremap <silent> <space>k <cmd>lua require('treesj').join()<cr>",
