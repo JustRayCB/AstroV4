@@ -14,10 +14,11 @@ return {
   { import = "astrocommunity.pack.java" }, -- modified in plugins/community.lua
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.pack.html-css" },
+  -- { import = "astrocommunity.pack.sql" },
   -- { import = "astrocommunity.code-runner.compiler-nvim" },
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.git.diffview-nvim" },
-  { import = "astrocommunity.lsp.garbage-day-nvim" },
+  -- { import = "astrocommunity.lsp.garbage-day-nvim" },
   -- import/override with your plugins folder
 }
