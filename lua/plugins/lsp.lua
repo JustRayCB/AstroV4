@@ -10,7 +10,7 @@ return {
     features = {
       autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       lsp_handlers = true, -- enable/disable setting of lsp_handlers
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
@@ -31,7 +31,15 @@ return {
         -- " lua_ls ",
         "jsonls", -- Conflict with jsonls
         "jdtls", -- Conflict with clang_format
+        "html",
       },
+      filter = function(client)
+        local current_ft = vim.bo.filetype
+        -- if client.name == "cssls" then return false end
+        -- if current_ft == "html" then return client.name == "html" end
+        if current_ft == "css" then return client.name == "cssls" end
+        return true
+      end,
       timeout_ms = 3200, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
       --   return true
@@ -68,6 +76,29 @@ return {
         settings = {
           exportPdf = "never", -- Choose onType, onSave or never.
           -- serverPath = "" -- Normally, there is no need to uncomment it.
+        },
+      },
+      stylelint_lsp = {
+        root_dir = function(fname) return vim.fn.getcwd() end,
+      },
+      cssls = {
+        -- configuration options for CSSLS
+        filetypes = { "css", "scss", "less" },
+        init_options = {
+          -- options to pass to CSSLS on initialization
+          provideFormatter = true,
+          provideLinting = true,
+        },
+        settings = {
+          -- configuration settings for CSSLS
+          css = {
+            lint = {
+              -- linting options for CSS
+              unknownAtRules = "ignore",
+              -- unknownProperties = "ignore",
+              vendorPrefix = "warn",
+            },
+          },
         },
       },
     },
