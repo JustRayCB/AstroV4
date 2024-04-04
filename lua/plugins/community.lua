@@ -47,6 +47,10 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "vim-test/vim-test",
       "nvim-neotest/neotest-vim-test",
+      {
+        "rcasia/neotest-java",
+        commit = "3a1853d55789b03ef71e1748a69470a0d016afad",
+      },
     },
     config = function()
       ---@diagnostic disable: missing-fields
