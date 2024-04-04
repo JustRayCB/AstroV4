@@ -48,6 +48,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      "tinymist",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -68,6 +69,14 @@ return {
           completeUnimported = true,
         },
         capabilities = { offsetEncoding = "utf-8" },
+      },
+      tinymist = {
+        single_file_support = true,
+        root_dir = function() return vim.fn.getcwd() end,
+        settings = {
+          exportPdf = "never",
+          outputPath = "$root/$name",
+        },
       },
       typst_lsp = {
         root_dir = function(fname)

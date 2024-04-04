@@ -116,7 +116,7 @@ return {
     -- Cause the closing ( or } to be more indented than the opening one.
     enabled = true,
     "kaarmu/typst.vim",
-    ft = "typst",
+    commands = { "TypstWatch" },
     init = function()
       vim.g.typst_pdf_viewer = "/mnt/c/Users/Craya/AppData/Local/SumatraPDF/SumatraPDF.exe"
       vim.g.typst_conceal = 1
