@@ -18,6 +18,8 @@ return {
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.git.diffview-nvim" },
+  { import = "astrocommunity.editing-support.nvim-devdocs" },
+  { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   -- { import = "astrocommunity.lsp.garbage-day-nvim" },
   -- import/override with your plugins folder
 }
