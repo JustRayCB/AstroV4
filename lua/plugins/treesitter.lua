@@ -19,6 +19,10 @@ return {
       "markdown",
       "javascript",
       "bibtex",
+      "css",
+      "html",
+      "sql",
+      "http",
       -- add more arguments for adding more treesitter parsers
     })
   end,
