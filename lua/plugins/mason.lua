@@ -16,6 +16,9 @@ return {
         "sqlls",
         "pyright",
         "typst_lsp",
+        "tailwindcss",
+        "tsserver",
+        "cssls",
         -- add more arguments for adding more language servers
       })
     end,
