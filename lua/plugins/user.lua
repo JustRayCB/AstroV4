@@ -3,30 +3,61 @@
 return {
   -- "andweeb/presence.nvim",
   {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "ray-x/lsp_signature.nvim",
+      opts = {
+        hint_enable = true, -- disable hints as it will crash in some terminal
+      },
+    },
+  },
+  {
+    "antosha417/nvim-lsp-file-operations",
+    -- lazy will handle loading nvim-tree and neo-tree appropriately based on the module load and our `init` function
+    lazy = true,
+    -- lazily load plugin after a tree plugin is loaded
+    init = function(plugin) require("astrocore").on_load({ "neo-tree.nvim", "nvim-tree.lua" }, plugin.name) end,
+    main = "lsp-file-operations", -- set the main module name where the `setup` function is
+    opts = {},
   },
   {
     "NvChad/nvim-colorizer.lua",
     event = "VimEnter", -- Bug with dap python (dap.lua, overseer.lua, community.python)
+    opts = {
+      user_default_options = {
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        names = true, -- "Name" codes like Blue or blue
+        RRGGBBAA = false, -- #RRGGBBAA hex codes
+        AARRGGBB = false, -- 0xAARRGGBB hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        -- Available modes for `mode`: foreground, background,  virtualtext
+        mode = "virtualtext", -- Set the display mode.
+        -- Available methods are false / true / "normal" / "lsp" / "both"
+        -- True is same as normal
+        tailwind = false, -- Enable tailwind colors
+        -- parsers can contain values used in |user_default_options|
+        sass = { enable = true, parsers = { "css" } }, -- Enable sass colors
+        virtualtext = "■",
+        -- update color values even if buffer is not focused
+        -- example use: cmp_menu, cmp_docs
+        always_update = true,
+      },
+    },
   },
   {
-    "Wansmer/treesj",
-    keys = { "<space>m" },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("treesj").setup {--[[ your config ]]
-        use_default_keymaps = false,
-        max_join_length = 1000,
-        -- vim.cmd "nnoremap <silent> <space>m <cmd>lua require('treesj').toggle()<cr>",
-        -- vim.cmd "nnoremap <silent> <space>j <cmd>lua require('treesj').split()<cr>",
-        -- vim.cmd "nnoremap <silent> <space>k <cmd>lua require('treesj').join()<cr>",
-        vim.keymap.set("n", "<space>m", require("treesj").toggle, { noremap = true, silent = true }),
-        vim.keymap.set("n", "<space>j", require("treesj").split, { noremap = true, silent = true }),
-        vim.keymap.set("n", "<space>k", require("treesj").join, { noremap = true, silent = true }),
-      }
-    end,
+    "echasnovski/mini.splitjoin",
+    event = "User AstroFile",
+    opts = {
+      mappings = {
+        toggle = "<leader>m",
+        split = "<leader>j",
+        join = "<leader>k",
+      },
+    },
   },
 
   {
