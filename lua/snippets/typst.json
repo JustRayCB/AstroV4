@@ -98,23 +98,87 @@
     "body": [
       "#definition[${1:Title}][",
       "\t${2:Definition}",
-      "][${3:Footer}]<${4:ref}>"
+      "]<${3:def:ref}>"
     ],
     "description": "Definition box"
+  },
+  "Theorem": {
+    "prefix": ["thm"],
+    "body": ["#theorem[${1:Title}][", "\t${2:Theorem}", "]<${3:thm:ref}>"],
+    "description": "Theorem box"
+  },
+  "Proof": {
+    "prefix": ["proof"],
+    "body": ["#proof[${1:Title}][", "\t${2:Proof}", "]<${3:prf:ref}>"],
+    "description": "Proof box"
+  },
+  "Example": {
+    "prefix": ["ex"],
+    "body": ["#example[${1:Title}][", "\t${2:Example}", "]<${3:ex:ref}>"],
+    "description": "Example box"
+  },
+  "Proposition": {
+    "prefix": ["prop"],
+    "body": [
+      "#proposition[${1:Title}][",
+      "\t${2:Proposition}",
+      "]<${3:prop:ref}>"
+    ],
+    "description": "Proposition box"
+  },
+  "Corollary": {
+    "prefix": ["cor"],
+    "body": ["#corollary[${1:Title}][", "\t${2:Corollary}", "]<${3:cor:ref}>"],
+    "description": "Corollary box"
+  },
+  "Lemma": {
+    "prefix": ["lem"],
+    "body": ["#lemma[${1:Title}][", "\t${2:Lemma}", "]<${3:lem:ref}>"],
+    "description": "Lemma box"
+  },
+  "Remark": {
+    "prefix": ["rem"],
+    "body": ["#remark[${1:Title}][", "\t${2:Remark}", "]<${3:rem:ref}>"],
+    "description": "Remark box"
+  },
+  "Notation": {
+    "prefix": ["not"],
+    "body": ["#notation[${1:Title}][", "\t${2:Notation}", "]<${3:not:ref}>"],
+    "description": "Notation box"
+  },
+  "Warning": {
+    "prefix": ["warn"],
+    "body": ["#warning[${1:Title}][", "\t${2:Warning}", "]<${3:warn:ref}>"],
+    "description": "Warning box"
+  },
+  "Problem": {
+    "prefix": ["prob"],
+    "body": ["#problem[${1:Title}][", "\t${2:Problem}", "]<${3:prob:ref}>"],
+    "description": "Problem box"
+  },
+  "Indent": {
+    "prefix": ["ind"],
+    "body": ["#indent()"],
+    "description": "Indent text"
+  },
+  "NoIndent": {
+    "prefix": ["nind"],
+    "body": ["#noindent()"],
+    "description": "No indent text"
   },
   "Highlight": {
     "prefix": ["hl"],
     "body": ["#highlight(fill: ${1:aqua})[${2:Text}]"],
     "description": "Highlight text"
   },
-  "Proof": {
-    "prefix": ["proof"],
-    "body": ["#proof[${1:Title}][", "\t${2:Proof}", "]<${3:ref}>"],
-    "description": "Proof box"
-  },
   "Term": {
     "prefix": ["trm"],
     "body": ["/ ${1:Term}: ${2:Definition}."],
     "description": "Term definition"
+  },
+  "Un-numbered Section": {
+    "prefix": ["un"],
+    "body": ["#unnumbered[${1:Title}]"],
+    "description": "Un-numbered Section"
   }
 }
