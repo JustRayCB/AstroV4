@@ -71,7 +71,7 @@ return {
         capabilities = { offsetEncoding = "utf-8" },
       },
       tinymist = {
-        single_file_support = true,
+        single_file_support = false,
         root_dir = function() return vim.fn.getcwd() end,
         settings = {
           exportPdf = "never",
@@ -106,6 +106,49 @@ return {
               unknownAtRules = "ignore",
               -- unknownProperties = "ignore",
               vendorPrefix = "warn",
+            },
+          },
+        },
+      },
+      tailwindcss = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(
+            "tailwind.config.js",
+            "tailwind.config.cjs",
+            "tailwind.config.ts",
+            "tailwind.config.tsx",
+            "tailwind.config.jsx",
+            ".git"
+          )(fname) or vim.fn.getcwd()
+        end,
+      },
+      tsserver = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern("tsconfig.json", "jsconfig.json", ".git")(fname)
+            or vim.fn.getcwd()
+        end,
+        single_file_support = false,
+        settings = {
+          typescript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "literal",
+              includeInlayParameterNameHints = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = false,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+          javascript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
             },
           },
         },
