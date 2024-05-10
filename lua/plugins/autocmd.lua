@@ -81,7 +81,7 @@ return {
           callback = function(args)
             -- I have to load the template this way because this autocmd triggers lazy-loaded plugins
             -- so, this autocmd is re-emitted after the plugin is loaded to capture the command.
-            -- Side-effect of lazy loading.
+            -- Side-effect of lazy loading. Thank Mehalter for this workaround.
             if not vim.b[args.buf].skeleton_added then -- only add the skeleton once
               vim.cmd("silent 0r " .. vim.fn.stdpath "config" .. "/lua/templates/skeleton.cpp")
               vim.b[args.buf].skeleton_added = true -- set the flag to true after first emmission of the command
