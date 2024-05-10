@@ -1,6 +1,6 @@
 return {
   "ThePrimeagen/refactoring.nvim",
-  ft = { "java", "cpp", "c", "h", "hpp", "cxx", "python" },
+  -- ft = { "java", "cpp", "c", "h", "hpp", "cxx", "python" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -39,6 +39,9 @@ return {
               function() require("refactoring").debug.cleanup {} end,
               desc = "Debug cleanup print statements",
             },
+            ["<Leader>rr"] = {
+              function() require("refactoring").select_refactor { show_success_message = true } end,
+            },
           },
           x = {
             ["<Leader>re"] = {
@@ -52,6 +55,9 @@ return {
             ["<Leader>rv"] = {
               function() require("refactoring").refactor "Extract Variable" end,
               desc = "Extract Variable refractoring",
+            },
+            ["<Leader>rr"] = {
+              function() require("refactoring").select_refactor { show_success_message = true } end,
             },
           },
         },
