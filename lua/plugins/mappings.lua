@@ -144,11 +144,11 @@ return {
         ["gbt"] = { "<cmd>GitBlameToggle<cr>", desc = "Toggle GitBlame" },
         ["gbf"] = { "<cmd>GitBlameOpenFileURL<cr>", desc = "Open the file url in github" },
         ["gbco"] = { "<cmd>GitBlameOpenCommitURL<cr>", desc = "Open the commit url in github" },
-
+        ["<C-Q>"] = false,
         ["<C-q>"] = { "<C-V>", desc = "Visual block mode" },
         ["gv"] = { desc = "Reselect last visual selection" },
-        ["<A-j>"] = { "<cmd>m .+1<cr>==", desc = "Move line up" },
-        ["<A-k>"] = { "<cmd>m .-2<cr>==", desc = "Move line up" },
+        ["<A-j>"] = { "<cmd>m .+1<cr>==", desc = "Move line up", silent = true },
+        ["<A-k>"] = { "<cmd>m .-2<cr>==", desc = "Move line up", silent = true },
 
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
@@ -171,8 +171,8 @@ return {
         ["<Leader>ru"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
         -- ["J"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down" },
         -- ["K"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up" },
-        ["<A-j>"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down" },
-        ["<A-k>"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up" },
+        ["<A-j>"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down", silent = true },
+        ["<A-k>"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up", silent = true },
       },
       c = {
         -- ["<C-j>"] = { "<Tab>", desc = "Move down in command mode" },
