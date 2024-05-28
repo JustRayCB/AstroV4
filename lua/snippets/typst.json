@@ -42,7 +42,7 @@
       "\tcaption: [",
       "\t\t${3:Caption}",
       "\t],",
-      ")<${4:figureName}>"
+      ")<${4:fig:figureName}>"
     ],
     "description": "Insert a Figure"
   },
@@ -53,7 +53,7 @@
   },
   "Math Equation": {
     "prefix": ["eq", "math"],
-    "body": ["$ $1 $"],
+    "body": ["$\n $1 \n$"],
     "description": "Insert math equation"
   },
   "Sum": {
@@ -76,7 +76,7 @@
   },
   "Code": {
     "prefix": ["code"],
-    "body": ["#sourcecode[```$1", "$2", "```]"],
+    "body": ["```$1", "$2", "```"],
     "description": "Code block typst"
   },
   "Underline": {
@@ -98,23 +98,23 @@
     "body": [
       "#definition[${1:Title}][",
       "\t${2:Definition}",
-      "]<${3:def:ref}>"
+      "]<${def:3:ref}>"
     ],
     "description": "Definition box"
   },
   "Theorem": {
     "prefix": ["thm"],
-    "body": ["#theorem[${1:Title}][", "\t${2:Theorem}", "]<${3:thm:ref}>"],
+    "body": ["#theorem[${1:Title}][", "\t${2:Theorem}", "]<${thm:3:ref}>"],
     "description": "Theorem box"
   },
   "Proof": {
     "prefix": ["proof"],
-    "body": ["#proof[${1:Title}][", "\t${2:Proof}", "]<${3:prf:ref}>"],
+    "body": ["#proof[${1:Title}][", "\t${2:Proof}", "]<${prf:3:ref}>"],
     "description": "Proof box"
   },
   "Example": {
     "prefix": ["ex"],
-    "body": ["#example[${1:Title}][", "\t${2:Example}", "]<${3:ex:ref}>"],
+    "body": ["#example[${1:Title}][", "\t${2:Example}", "]<${ex:3:ref}>"],
     "description": "Example box"
   },
   "Proposition": {
@@ -122,38 +122,38 @@
     "body": [
       "#proposition[${1:Title}][",
       "\t${2:Proposition}",
-      "]<${3:prop:ref}>"
+      "]<${prop:3:ref}>"
     ],
     "description": "Proposition box"
   },
   "Corollary": {
     "prefix": ["cor"],
-    "body": ["#corollary[${1:Title}][", "\t${2:Corollary}", "]<${3:cor:ref}>"],
+    "body": ["#corollary[${1:Title}][", "\t${2:Corollary}", "]<${cor:3:ref}>"],
     "description": "Corollary box"
   },
   "Lemma": {
     "prefix": ["lem"],
-    "body": ["#lemma[${1:Title}][", "\t${2:Lemma}", "]<${3:lem:ref}>"],
+    "body": ["#lemma[${1:Title}][", "\t${2:Lemma}", "]<${lem:3:ref}>"],
     "description": "Lemma box"
   },
   "Remark": {
     "prefix": ["rem"],
-    "body": ["#remark[${1:Title}][", "\t${2:Remark}", "]<${3:rem:ref}>"],
+    "body": ["#remark[${1:Title}][", "\t${2:Remark}", "]<${rem:3:ref}>"],
     "description": "Remark box"
   },
   "Notation": {
     "prefix": ["not"],
-    "body": ["#notation[${1:Title}][", "\t${2:Notation}", "]<${3:not:ref}>"],
+    "body": ["#notation[${1:Title}][", "\t${2:Notation}", "]<${not:3:ref}>"],
     "description": "Notation box"
   },
   "Warning": {
     "prefix": ["warn"],
-    "body": ["#warning[${1:Title}][", "\t${2:Warning}", "]<${3:warn:ref}>"],
+    "body": ["#warning[${1:Title}][", "\t${2:Warning}", "]<${warn:3:ref}>"],
     "description": "Warning box"
   },
   "Problem": {
     "prefix": ["prob"],
-    "body": ["#problem[${1:Title}][", "\t${2:Problem}", "]<${3:prob:ref}>"],
+    "body": ["#problem[${1:Title}][", "\t${2:Problem}", "]<${prob:3:ref}>"],
     "description": "Problem box"
   },
   "Indent": {
