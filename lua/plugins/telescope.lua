@@ -8,7 +8,9 @@ return {
       "AstroNvim/astrocore",
       opts = {
         mappings = {
-          n = {},
+          n = {
+            ["gr"] = { "<cmd>Telescope lsp_references<cr>", desc = "Override default go to reference", silent = true },
+          },
         },
       },
     },
