@@ -40,6 +40,14 @@ return {
         long_message_to_split = true, -- long messages will be sent to a split
         lsp_doc_border = true, -- add a border to hover docs and signature help
       },
+      routes = {
+        {
+          -- TODO: Remove this when the issue is fixed of overseer and nvim-dap is fixed
+          -- https://github.com/stevearc/overseer.nvim/issues/307 with AstroNvim
+          filter = { event = "msg_show", find = "overseer" },
+          opts = { skip = true },
+        },
+      },
     },
   },
 }
