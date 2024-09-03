@@ -47,6 +47,10 @@ return {
           filter = { event = "msg_show", find = "overseer" },
           opts = { skip = true },
         },
+        {
+          filter = { error = true, find = "copilot_node_command" },
+          opts = { skip = true },
+        },
       },
     },
   },
