@@ -5,11 +5,21 @@ return {
     config = function(plugin, opts)
       -- require "plugins.configs.better-escape"(plugin, opts)
       require("better_escape").setup {
-        mapping = { "jj" }, -- a table with mappings to use
         timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-        clear_empty_lines = true, -- clear line after escaping if there is only whitespace
-        -- This esc is to not move the cursor to the left when back in normal mode
-        keys = "<Esc>`^", -- keys used for escaping, if it is a function will use the result everytime
+        -- default_mappings = false, -- weird behavior
+        mappings = {
+          i = {
+            j = {
+              -- These can all also be functions
+              -- j = "<Esc>`^",
+              j = function()
+                vim.api.nvim_input "<Esc>`^"
+                local current_line = vim.api.nvim_get_current_line()
+                if current_line:match "^%s+j$" then vim.schedule(function() vim.api.nvim_set_current_line "" end) end
+              end,
+            },
+          },
+        },
         -- example(recommended)
         -- keys = function()
         --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
