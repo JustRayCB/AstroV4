@@ -154,6 +154,7 @@ return {
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
       },
       i = {
+        ["<esc>"] = { "<esc>`^", desc = "Not going to the right when escaping" },
         ["<A-j>"] = { "<esc>:m .+1<cr>==gi", desc = "Move line up" },
         ["<A-k>"] = { "<esc>:m .-2<cr>==gi", desc = "Move line up" },
       },
