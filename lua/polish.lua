@@ -7,6 +7,7 @@ vim.filetype.add {
   extension = {
     foo = "fooscript",
     uml = "plantuml",
+    rasi = "rasi",
   },
   filename = {
     ["Foofile"] = "fooscript",
