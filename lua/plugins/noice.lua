@@ -51,6 +51,10 @@ return {
           filter = { error = true, find = "copilot_node_command" },
           opts = { skip = true },
         },
+        {
+          filter = { error = false, find = "Error contacting kwalletd" },
+          opts = { skip = true },
+        },
       },
     },
   },
