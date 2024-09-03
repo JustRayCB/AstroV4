@@ -28,14 +28,14 @@ return {
         },
         on_highlights = function(highlights, colors)
           highlights["LspInlayHint"] = {
-            style = { italic = true },
+            italic = true,
           }
-          highlights["@conditional"] = { fg = colors.magenta, style = { italic = true } }
-          highlights["@repeat"] = { fg = colors.magenta, style = { italic = true } }
+          highlights["@conditional"] = { fg = colors.magenta, italic = true }
+          highlights["@repeat"] = { fg = colors.magenta, italic = true }
           --   highlights["@Comment"] = { fg = colors.red}
           -- TabLineFill = { link = "StatusLine" },
           -- LspInlayHint = { style = { "italic" } },
-          highlights["@parameter"] = { fg = colors.cyan, style = { italic = true } }
+          highlights["@parameter"] = { fg = colors.cyan, italic = true }
           -- highlights["@type.builtin"] = { style = {"italic"} },
           -- highlights["@namespace"] = { style = {"italic"} },
           -- highlights["@text.uri"] = { style = { "underline" } },
