@@ -5,7 +5,7 @@ return {
   -- this guarantees that the community plugin specs are loaded before the user configuration
 
   -- This is a good place to do further customize the options set by the community plugins/packs
-  -- NOTICE: uncommenting below assumes you have the catppuccin AstroCommunity plugin imported in `lua/config/lazy.lua`
+  -- NOTE: uncommenting below assumes you have the catppuccin AstroCommunity plugin imported in `lua/config/lazy.lua`
   -- {
   --   "catppuccin/nvim",
   --   opts = {
@@ -46,10 +46,9 @@ return {
       "rcasia/neotest-java",
       "antoinemadec/FixCursorHold.nvim",
       "vim-test/vim-test",
-      "nvim-neotest/neotest-vim-test",
       {
         "rcasia/neotest-java",
-        commit = "3a1853d55789b03ef71e1748a69470a0d016afad",
+        commit = "3a1853d55789b03ef71e1748a69470a0d016afad", --becomes weird after that plugin
       },
     },
     config = function()
@@ -61,9 +60,6 @@ return {
             runner = "pytest",
           },
           require "neotest-java" { ignore_wrapper = false },
-          require "neotest-vim-test" {
-            ignore_file_types = { "python", "vim", "lua", "javascript", "typescript" },
-          },
         },
       }
     end,
