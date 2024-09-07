@@ -26,14 +26,14 @@ vim.api.nvim_create_autocmd("User", {
 vim.cmd "cnoremap <c-k> <c-p>"
 vim.cmd "cnoremap <c-j> <c-n>"
 
--- vim.api.nvim_create_autocmd("VimEnter", {
---   nested = true,
---   pattern = "*",
---   desc = "Root detection when entering a buffer",
---   callback = function(args)
---     local bufnr = args.buf
---     vim.bo[bufnr].buflisted = true -- Make sure the buffer is listed
---     require("astrocore.rooter").root(bufnr)
---   end,
---   -- command = "lua require('astrocore.rooter').root(vim.fn.bufnr())",
--- })
+vim.api.nvim_create_autocmd("VimEnter", {
+  nested = true,
+  pattern = "*",
+  desc = "Root detection when entering NVIM and spawn on HOME",
+  callback = function(args)
+    local bufnr = args.buf
+    vim.bo[bufnr].buflisted = true -- Make sure the buffer is listed
+    require("astrocore.rooter").root(bufnr)
+  end,
+  -- command = "lua require('astrocore.rooter').root(vim.fn.bufnr())",
+})
