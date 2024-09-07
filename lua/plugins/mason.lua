@@ -1,63 +1,32 @@
--- if true then return {} end -- REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Example customization of mason plugins
 ---@type LazySpec
 return {
   -- use mason-lspconfig to configure LSP installations
   {
-    "williamboman/mason-lspconfig.nvim",
-    -- overrides `require("mason-lspconfig").setup(...)`
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
-      -- add more things to the ensure_installed table protecting against community packs modifying it
       ensure_installed = {
-        "lua_ls",
+        -- LSP
+        "lua-language-server",
         "jdtls",
         "clangd",
-        "sqlls",
-        -- "pyright", -- Using basedpyright instead
-        "typst_lsp",
-        -- "tailwindcss",
-        -- "tsserver",
-        -- "cssls",
-        -- add more arguments for adding more language servers
-      },
-    },
-  },
-  -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
-  {
-    "jay-babu/mason-null-ls.nvim",
-    -- overrides `require("mason-null-ls").setup(...)`
-    opts = {
+        -- "typst_lsp",
+        "basedpyright",
 
-      -- add more things to the ensure_installed table protecting against community packs modifying it
-      ensure_installed = {
-        -- "prettier",
+        -- FORMATTERS
         "stylua",
-        -- "checkstyle",
+        "clang-format",
+
+        -- DAP
         "cpptools",
         "codelldb",
         "debugpy",
-        "javadbg",
         "java-debug-adapter",
-        "java-test",
-        -- add more arguments for adding more null-ls sources
       },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    -- overrides `require("mason-nvim-dap").setup(...)`
-    opts = {
-      -- add more things to the ensure_installed table protecting against community packs modifying it
-      ensure_installed = {
-        -- "python"
-        "cpptools",
-        "codelldb",
-        "debugpy",
-        "javadbg",
-        "java-debug-adapter",
-        "java-test",
-        -- add more arguments for adding more debuggers
+      integrations = {
+        ["mason-lspconfig"] = false,
+        ["mason-null-ls"] = false,
+        ["mason-nvim-dap"] = false,
       },
     },
   },
