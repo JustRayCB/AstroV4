@@ -4,6 +4,6 @@ return {
   cmd = { "LiveServerStart", "LiveServerStop" },
   config = true,
   opts = {
-    args = { "--browser=wslview" },
+    args = { "--browser=xdg-open" },
   },
 }
