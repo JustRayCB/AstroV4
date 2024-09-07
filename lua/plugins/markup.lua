@@ -165,8 +165,9 @@ return {
     enabled = true,
     "kaarmu/typst.vim",
     -- cmd = { "TypstWatch" },
+    ft = "typst",
     init = function()
-      vim.g.typst_pdf_viewer = "/mnt/c/Users/Craya/AppData/Local/SumatraPDF/SumatraPDF.exe"
+      vim.g.typst_pdf_viewer = "xdg-open"
       vim.g.typst_conceal = 1
       vim.g.typst_conceal_emoji = false
       -- vim.g.typst_conceal_math = true
@@ -176,8 +177,8 @@ return {
   {
     "chomosuke/typst-preview.nvim",
     cmd = { "TypstPreview" },
-    -- ft = "typst",
-    version = "0.3.*",
+    ft = "typst",
+    -- version = "0.3.*", -- use the latest by default
     build = function() require("typst-preview").update() end,
     opts = {},
   },
