@@ -3,17 +3,7 @@
 return {
   -- "andweeb/presence.nvim",
   {
-    "antosha417/nvim-lsp-file-operations",
-    -- lazy will handle loading nvim-tree and neo-tree appropriately based on the module load and our `init` function
-    lazy = true,
-    -- lazily load plugin after a tree plugin is loaded
-    init = function(plugin) require("astrocore").on_load({ "neo-tree.nvim", "nvim-tree.lua" }, plugin.name) end,
-    main = "lsp-file-operations", -- set the main module name where the `setup` function is
-    opts = {},
-  },
-  {
     "NvChad/nvim-colorizer.lua",
-    -- event = "VimEnter", -- Bug with dap python (dap.lua, overseer.lua, community.python)
     -- opts = {
     --   user_default_options = {
     --     RGB = true, -- #RGB hex codes
@@ -54,17 +44,11 @@ return {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("todo-comments").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-        highlight = {
-          comments_only = false,
-        },
-      }
-    end,
-    -- opts = {},
+    opts = {
+      highlight = {
+        comments_only = false,
+      },
+    },
     event = { "User AstroFile" },
     cmd = { "TodoQuickFix" },
     -- keys = {
@@ -103,7 +87,7 @@ return {
     "michaelb/sniprun",
     keys = {},
     lazy = true,
-    ft = { "py", "cpp", "java", "c", "rust" },
+    ft = { "python", "cpp", "java", "c", "rust" },
     opts = {
       display = {
         -- "Classic",
