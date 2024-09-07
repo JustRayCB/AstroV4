@@ -18,4 +18,13 @@ return {
   --   build = "pnpm install -g browser-sync",
   --   opts = {},
   -- },
+  -- {
+  --   "barrett-ruth/live-server.nvim",
+  --   build = "pnpm add -g live-server",
+  --   cmd = { "LiveServerStart", "LiveServerStop" },
+  --   config = true,
+  --   opts = {
+  --     args = { "--browser=xdg-open" },
+  --   },
+  -- },
 }
