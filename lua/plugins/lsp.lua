@@ -31,7 +31,6 @@ return {
         -- " lua_ls ",
         "jsonls", -- Conflict with jsonls
         "jdtls", -- Conflict with clang_format
-        "html",
       },
       timeout_ms = 3200, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
