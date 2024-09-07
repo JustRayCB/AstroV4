@@ -124,43 +124,6 @@ return {
     end,
   },
   {
-    "aspeddro/pandoc.nvim",
-    event = { "VimEnter *.md" },
-    config = function()
-      -- code
-      require("pandoc").setup {
-        commands = {
-          name = "PandocBuild",
-        },
-        default = {
-          output = "%s_output.pdf",
-        },
-        mappings = {
-          -- normal mode
-          n = {
-            ["<leader>pr"] = function()
-              local name = vim.fn.input "Output file name: "
-              require("pandoc.render").file {
-                { "--toc" },
-                { "--from", "gfm" },
-                -- { "-t latex"},
-                { "--output", name .. ".pdf" },
-                { "--variable", "colorlinks" },
-                { "--variable", "linkcolor:blude" },
-                { "--variable", "geometry:margin=2cm" },
-                { "--variable", "geometry:a4paper" },
-                { "--variable", "mainfont=DejaVu Serif" },
-                { "--variable", "monofont=DejaVu Sans Mono" },
-                { "--pdf-engine", "xelatex" },
-                -- { "--metadata", "date", "$(date '+%B %e, %Y')" }, --does not work
-              }
-            end,
-          },
-        },
-      }
-    end,
-  },
-  {
     -- Cause the closing ( or } to be more indented than the opening one.
     enabled = true,
     "kaarmu/typst.vim",
