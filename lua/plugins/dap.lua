@@ -120,26 +120,4 @@ return {
       -- }
     end,
   },
-  {
-    "mfussenegger/nvim-dap-python",
-    dependencies = "mfussenegger/nvim-dap",
-    ft = "python", -- NOTE: ft: lazy-load on filetype
-    config = function(_, opts)
-      local path = require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
-      local cwd = vim.fn.getcwd()
-      -- local cwd = "/home/cbr/Unif3/campus_routing/"
-      -- opts.DebugpyLaunchConfig.cwd = vim.fn.getcwd()
-      require("dap-python").setup(path, opts)
-      -- require("dap").configurations.python[0].cwd = vim.fn.getcwd()
-      -- print(vim.inspect(require("dap").configurations.python))
-      -- require("dap").configurations.python
-      for _, tble in ipairs(require("dap").configurations.python) do
-        ---@class tble
-        if tble ~= nil then tble.cwd = cwd end
-      end
-      -- print(vim.inspect(require("dap").configurations.python))
-
-      -- print(type(require("dap").configurations.python))
-    end,
-  },
 }
