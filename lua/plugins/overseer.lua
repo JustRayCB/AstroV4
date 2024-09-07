@@ -22,7 +22,11 @@ return {
     require("overseer").setup {
       -- Default task strategy
       -- strategy = "terminal",
-      strategy = "toggleterm",
+      -- strategy = "toggleterm",
+      strategy = {
+        "toggleterm",
+        direction = "float",
+      },
       -- Template modules to load
       templates = {
         "builtin",
