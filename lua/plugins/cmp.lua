@@ -6,7 +6,6 @@ return {
     "hrsh7th/cmp-emoji",
     -- "jc-doyle/cmp-pandoc-references",
     -- "kdheepak/cmp-latex-symbols",
-    -- "mstanciu552/cmp-octave",
     "hrsh7th/cmp-path",
   },
   opts = function(_, opts)
@@ -25,23 +24,19 @@ return {
     opts.mapping["<CR>"] = cmp.mapping.confirm { select = true }
     opts.mapping["<C-x>"] = cmp.mapping.select_next_item()
     opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_locally_jumpable() or neogen.jumpable() then
-        if neogen.jumpable() then
-          neogen.jump_next()
-        else
-          luasnip.expand_or_jump()
-        end
+      if neogen.jumpable() then
+        neogen.jump_next()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
     end, { "i", "s" })
     opts.mapping["<C-p>"] = cmp.mapping(function(fallback)
-      if luasnip.jumpable(-1) or neogen.jumpable(true) then
-        if neogen.jumpable(true) then
-          neogen.jump_prev()
-        else
-          luasnip.jump(-1)
-        end
+      if neogen.jumpable(-1) then
+        neogen.jump_prev()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
