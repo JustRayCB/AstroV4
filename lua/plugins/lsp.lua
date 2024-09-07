@@ -129,23 +129,6 @@ return {
         -- },
         -- Restart LSP ser ver
         ["<leader>rl"] = { "<cmd>LspRestart<cr>", desc = "Restart LSP server" },
-        ["<leader>o"] = {
-          function()
-            require("telescope.builtin").find_files {
-              prompt_title = "Fichiers",
-              attach_mappings = function(_, map)
-                map("i", "<CR>", function(prompt_bufnr)
-                  local picker = prompt_bufnr
-                  local selection = require("telescope.actions.state").get_selected_entry()
-                  vim.fn.execute("silent !xdg-open'" .. selection.path .. "'")
-                  require("telescope.actions").close(picker)
-                end)
-                return true
-              end,
-            }
-          end,
-          desc = "Open file with default viewer from the root of the project",
-        },
       },
     },
   },

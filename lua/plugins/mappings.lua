@@ -95,7 +95,7 @@ return {
                     local path = cwd .. "/" .. prompt
                     local parent_dir = vim.fn.fnamemodify(path, ":h")
                     if vim.fn.isdirectory(parent_dir) == 0 then vim.fn.mkdir(parent_dir, "p") end
-                    vim.api.nvim_exec(":edit " .. cwd .. "/" .. prompt, false)
+                    vim.cmd(":edit " .. cwd .. "/" .. prompt, false)
                   end
                   -- require("telescope.actions").close(picker)
                 end)
@@ -122,17 +122,16 @@ return {
               prompt_title = "Fichiers",
               attach_mappings = function(_, map)
                 map("i", "<CR>", function(prompt_bufnr)
-                  -- local picker = vim.fn.bufnr()
                   local picker = prompt_bufnr
                   local selection = require("telescope.actions.state").get_selected_entry()
-                  vim.fn.execute("silent !wslview '" .. selection.path .. "'")
+                  vim.fn.execute("silent !xdg-open'" .. selection.path .. "'")
                   require("telescope.actions").close(picker)
                 end)
                 return true
               end,
             }
           end,
-          desc = "Open file with wslview",
+          desc = "Open file with default viewer from the root of the project",
         },
         -- ======= END Telescope Related =======
 
