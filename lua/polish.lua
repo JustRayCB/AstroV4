@@ -34,7 +34,6 @@ vim.cmd "cnoremap <c-j> <c-n>"
 
 vim.api.nvim_create_autocmd("VimEnter", {
   nested = true,
-  -- group = group,
   pattern = "*",
   desc = "Root detection when entering a buffer",
   callback = function(args)
@@ -43,20 +42,4 @@ vim.api.nvim_create_autocmd("VimEnter", {
     require("astrocore.rooter").root(bufnr)
   end,
   -- command = "lua require('astrocore.rooter').root(vim.fn.bufnr())",
-})
-
--- vim.api.nvim_create_autocmd({ "BufNewFile" }, {
---   desc = "Load cpp template",
---   pattern = "*.cpp",
---   command = "silent 0r ~/.vim/templates/skeleton.cpp",
--- })
-vim.api.nvim_create_autocmd({
-  "BufNewFile",
-  "BufRead",
-}, {
-  pattern = "*.typ",
-  callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    vim.api.nvim_buf_set_option(buf, "filetype", "typst")
-  end,
 })
