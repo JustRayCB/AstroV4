@@ -10,7 +10,7 @@ return {
   -- { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.python" },
-  -- { import = "astrocommunity.pack.java" }, -- modified in plugins/community.lua
+  { import = "astrocommunity.pack.java" }, -- modified in plugins/community.lua
   { import = "astrocommunity.pack.bash" },
   -- { import = "astrocommunity.pack.html-css" },
   -- { import = "astrocommunity.pack.sql" },

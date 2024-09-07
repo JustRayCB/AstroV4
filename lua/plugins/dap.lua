@@ -89,7 +89,7 @@ return {
         },
         {
           classpath = {},
-          javaExec = "/usr/bin/java",
+          javaExec = "java",
           modulePaths = {},
           name = "Launch current file",
           request = "launch",
@@ -99,7 +99,7 @@ return {
         },
         {
           classpath = {},
-          javaExec = "/usr/bin/java",
+          javaExec = "java",
           modulePaths = {},
           name = "Launch current file with arugments",
           request = "launch",
