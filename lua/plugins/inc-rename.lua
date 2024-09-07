@@ -7,7 +7,7 @@ return {
   {
     "smjonas/inc-rename.nvim",
     -- event = "User AstroLspSetup",
-    -- ft = { "java" },
+    ft = { "java" },
     cmd = "IncRename",
     opts = {},
   },
