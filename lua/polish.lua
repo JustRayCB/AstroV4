@@ -17,11 +17,11 @@ vim.filetype.add {
   },
 }
 
-vim.api.nvim_create_autocmd("User", {
-  desc = "Hightlight colorcolumn",
-  pattern = "*",
-  command = "highlight ColorColumn guibg=Red",
-})
+-- vim.api.nvim_create_autocmd("User", {
+--   desc = "Hightlight colorcolumn",
+--   pattern = "*",
+--   command = "highlight ColorColumn guibg=Red",
+-- })
 
 vim.api.nvim_create_autocmd("User", {
   desc = "no auto comment after pressing o",

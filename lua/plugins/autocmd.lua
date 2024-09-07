@@ -28,15 +28,16 @@ return {
       --   },
       -- },
       --
-      -- colorcolumn = {
-      --   {
-      --     event = "User",
-      --     pattern = "*",
-      --     group = "colorcolumn",
-      --     command = "highlight ColorColumn guibg=Red",
-      --     desc = "Highlight the ColorColumn in Red",
-      --   },
-      -- },
+      colorcolumn = {
+        {
+          event = "User",
+          pattern = "*",
+          group = "colorcolumn",
+          command = "highlight ColorColumn guibg=Red",
+          desc = "Highlight the ColorColumn in Red",
+        },
+      },
+
       compile = {
         {
           event = "VimEnter",
