@@ -148,9 +148,6 @@ return {
         ["gv"] = { desc = "Reselect last visual selection" },
         ["<A-j>"] = { "<cmd>m .+1<cr>==", desc = "Move line up", silent = true },
         ["<A-k>"] = { "<cmd>m .-2<cr>==", desc = "Move line up", silent = true },
-
-        -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
       },
       i = {
         ["<esc>"] = { "<esc>`^", desc = "Not going to the right when escaping" },
@@ -162,23 +159,17 @@ return {
         ["J"] = { "<C-\\><C-n>", desc = "Switch to normal mode" },
       },
       v = {
-        -- ["<Leader>c"] = false,
         ["y"] = { "ygv<esc>", desc = "Make the cursor not move after yank" },
         ["<c-c>"] = { "y", desc = "Copy to clipboard" },
-        -- ["m"] = { "w", desc = "one word to the left" },
         ["<"] = { "<gv^", desc = "Keep visual mode after Indent left" },
         [">"] = { ">gv^", desc = "Keep visual mode after Indent right" },
         ["<Leader>ru"] = { ":'<,'>SnipRun<cr>", desc = "Run code with Sniprun", silent = true },
-        -- ["J"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down" },
-        -- ["K"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up" },
         ["<A-j>"] = { ":m '>+1<cr>gv=gv", desc = "Move the selected lines down", silent = true },
         ["<A-k>"] = { ":m '<-2<cr>gv=gv", desc = "Move the selected lines up", silent = true },
       },
       c = {
-        -- ["<C-j>"] = { "<Tab>", desc = "Move down in command mode" },
-        -- ["<C-k>"] = { "<S-Tab>", desc = "Move up in command mode" },
-        ["<Tab>"] = false,
-        ["<s-Tab>"] = false,
+        ["<c-j>"] = { "<c-n>", desc = "Move down in command mode" },
+        ["<c-k>"] = { "<c-p>", desc = "Move up in command mode" },
       },
     },
   },

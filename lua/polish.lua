@@ -23,9 +23,6 @@ vim.api.nvim_create_autocmd("User", {
   command = "setlocal formatoptions-=o",
 })
 
-vim.cmd "cnoremap <c-k> <c-p>"
-vim.cmd "cnoremap <c-j> <c-n>"
-
 vim.api.nvim_create_autocmd("VimEnter", {
   nested = true,
   pattern = "*",
