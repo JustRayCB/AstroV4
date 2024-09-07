@@ -3,15 +3,6 @@
 return {
   -- "andweeb/presence.nvim",
   {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "ray-x/lsp_signature.nvim",
-      opts = {
-        hint_enable = true, -- disable hints as it will crash in some terminal
-      },
-    },
-  },
-  {
     "antosha417/nvim-lsp-file-operations",
     -- lazy will handle loading nvim-tree and neo-tree appropriately based on the module load and our `init` function
     lazy = true,
@@ -22,7 +13,7 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
-    event = "VimEnter", -- Bug with dap python (dap.lua, overseer.lua, community.python)
+    -- event = "VimEnter", -- Bug with dap python (dap.lua, overseer.lua, community.python)
     -- opts = {
     --   user_default_options = {
     --     RGB = true, -- #RGB hex codes
