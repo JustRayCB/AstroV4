@@ -1,4 +1,9 @@
 return {
+  -- Fix "jj" escaping the renaming window
+  {
+    "stevearc/dressing.nvim",
+    opts = { input = { insert_only = false } },
+  },
   {
     "smjonas/inc-rename.nvim",
     -- event = "User AstroLspSetup",
