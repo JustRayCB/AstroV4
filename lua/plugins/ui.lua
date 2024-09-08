@@ -78,7 +78,7 @@ return {
         local get_hlgroup = require("astroui").get_hlgroup
         -- use helper function to get highlight group properties
         hl.text_fg = "#7aa2f7"
-        hl.insert = "#C1E68C"
+        hl.insert = "#c3e88d"
         hl.visual = "#BE98FD"
         hl.replace = "#ea6962"
         hl.terminal = "#a89984"

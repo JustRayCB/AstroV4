@@ -123,7 +123,6 @@ return {
           },
         },
       },
-      -- Show file encoding
       -- Show Codeium status
       status.component.lsp {
         lsp_client_names = {
@@ -132,6 +131,7 @@ return {
         surround = { separator = "left" },
       },
       status.component.virtual_env(),
+      -- Show file encoding
       status.component.builder {
         provider = function()
           return status.utils.stylize(string.upper(vim.bo.fileencoding), {
@@ -139,7 +139,6 @@ return {
           })
         end,
         hl = { fg = "text_fg" },
-        padding = { right = 1 },
       },
       {
         status.component.builder {
