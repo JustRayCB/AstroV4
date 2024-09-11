@@ -12,6 +12,7 @@ return {
         "clangd",
         -- "typst_lsp",
         "basedpyright",
+        "tinymist",
 
         -- FORMATTERS
         "stylua",
