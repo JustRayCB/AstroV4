@@ -13,6 +13,7 @@ return {
       inlay_hints = true, -- enable/disable inlay hints on start
       lsp_handlers = true, -- enable/disable setting of lsp_handlers
       semantic_tokens = true, -- enable/disable semantic token highlighting
+      signature_help = true,
     },
     -- customize lsp formatting options
     formatting = {
