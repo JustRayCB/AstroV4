@@ -16,4 +16,5 @@ return {
   -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 }
