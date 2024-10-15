@@ -65,6 +65,7 @@ return {
         capabilities = { offsetEncoding = "utf-8" },
       },
       tinymist = {
+        offset_encoding = "utf-16",
         single_file_support = false,
         root_dir = function() return vim.fn.getcwd() end,
         settings = {
