@@ -14,6 +14,8 @@ return {
     local cmp = require "cmp"
     local luasnip = require "luasnip"
     local neogen = require "neogen"
+    local compare = cmp.config.compare
+
     -- To  fix the issue of tab jumping around "randomly"
     luasnip.config.set_config { -- To fix the issue of tab jumping around "randomly"
       region_check_events = "InsertEnter",
@@ -47,6 +49,7 @@ return {
     -- Setup sources priority
     opts.sources = cmp.config.sources {
       { name = "luasnip", priority = 1750 },
+      { name = "jupynium", priority = 1500 },
       { name = "nvim_lsp", priority = 1000 },
       -- { name = "vim-dadbod-completion", priority = 800 },
       -- { name = "cmp_octave", priority = 800 },
@@ -63,5 +66,14 @@ return {
       { name = "buffer", priority = 250 },
       { name = "emoji", priority = 200 },
     }
+    -- opts.sorting = {
+    --   priority_weight = 1.0,
+    --   comparators = {
+    --     compare.score, -- Jupyter kernel completion shows prior to LSP
+    --     compare.recently_used,
+    --     compare.locality,
+    --     -- ...
+    --   },
+    -- }
   end,
 }
