@@ -26,6 +26,18 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     opts = function(_, opts)
+      -- Set up Java runtime configurations
+      opts.settings.java.configuration.runtimes = {
+        {
+          name = "JavaSE-23",
+          path = os.getenv "HOME" .. "/.sdkman/candidates/java/23-open/",
+        },
+        {
+          name = "JavaSE-1.8",
+          path = os.getenv "HOME" .. "/.sdkman/candidates/java/8.0.422-amzn",
+        },
+      }
+      opts.cmd[1] = "/home/cbr/.sdkman/candidates/java/23-open/bin/java"
       vim.api.nvim_set_keymap("n", "<leader>lr", ":IncRename ", { noremap = false })
       local utils = require "astrocore"
       local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", ".project" }
