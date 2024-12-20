@@ -79,6 +79,11 @@
     "body": ["```$1", "$2", "```"],
     "description": "Code block typst"
   },
+  "Inline COde": {
+    "prefix": ["icode"],
+    "body": ["`$1` $2"],
+    "description": "Inline code"
+  },
   "Underline": {
     "prefix": ["u"],
     "body": ["#underline[$1]"]
