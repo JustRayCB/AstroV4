@@ -55,6 +55,10 @@ return {
           filter = { error = false, find = "Error contacting kwalletd" },
           opts = { skip = true },
         },
+        {
+          filter = { error = true, find = "Error executing vim.schedule" },
+          opts = { skip = true },
+        },
       },
     },
   },
