@@ -63,4 +63,30 @@ return {
       return opts
     end,
   },
+
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            v = {
+              ["<c-a>"] = { "<cmd>CodeCompanionActions<cr>", noremap = true, silent = true },
+            },
+          },
+        },
+      },
+    },
+    config = true,
+    opts = {
+      strategies = {
+        chat = { adapter = "copilot" },
+        inline = { adapter = "copilot" },
+      },
+    },
+  },
 }
