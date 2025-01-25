@@ -57,6 +57,7 @@ return {
   },
   {
     "lervag/vimtex",
+    enabled = false,
     lazy = true,
     ft = { "tex" },
     event = { "VimEnter *.tex" },
@@ -130,7 +131,8 @@ return {
     -- cmd = { "TypstWatch" },
     ft = "typst",
     init = function()
-      vim.g.typst_pdf_viewer = "xdg-open"
+      vim.g.typst_pdf_viewer = "evince"
+      -- vim.g.typst_pdf_viewer = "kitten @launch --location=vsplit fancy-cat main.pdf"
       vim.g.typst_conceal = 1
       vim.g.typst_conceal_emoji = false
       -- vim.g.typst_conceal_math = true
@@ -141,8 +143,12 @@ return {
     "chomosuke/typst-preview.nvim",
     cmd = { "TypstPreview" },
     ft = "typst",
-    -- version = "0.3.*", -- use the latest by default
+    version = "1.2.*", -- use the latest by default
     build = function() require("typst-preview").update() end,
-    opts = {},
+    opts = {
+      dependencies_bin = {
+        ["tinymist"] = "tinymist",
+      },
+    },
   },
 }
