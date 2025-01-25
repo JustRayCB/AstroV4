@@ -10,7 +10,7 @@ return {
     features = {
       autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = true, -- enable/disable inlay hints on start
+      inlay_hints = false, -- enable/disable inlay hints on start
       lsp_handlers = true, -- enable/disable setting of lsp_handlers
       semantic_tokens = true, -- enable/disable semantic token highlighting
       signature_help = true,
@@ -65,12 +65,16 @@ return {
         capabilities = { offsetEncoding = "utf-8" },
       },
       tinymist = {
-        offset_encoding = "utf-16",
+        -- offset_encoding = "utf-16",
         single_file_support = false,
         root_dir = function() return vim.fn.getcwd() end,
         settings = {
-          exportPdf = "never",
+          -- exportPdf = "never",
+          exportPdf = "onType",
           outputPath = "$root/$name",
+          typstExtraArgs = { "main.typ" },
+          -- formatterMode = "",
+          formatterPrintWidth = 100,
         },
       },
       typst_lsp = {
