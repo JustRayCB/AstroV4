@@ -8,6 +8,9 @@ vim.filetype.add {
     foo = "fooscript",
     uml = "plantuml",
     rasi = "rasi",
+    jupyter = "ju.py",
+    jflex = "jflex",
+    flex = "jflex",
   },
   filename = {
     ["Foofile"] = "fooscript",
