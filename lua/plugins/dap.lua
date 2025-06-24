@@ -13,6 +13,23 @@ return {
           args = { "--port", "${port}" },
         },
       }
+      dap.configurations.c = {
+        {
+          name = "Launch file",
+          type = "codelldb",
+          request = "launch",
+          program = function()
+            local file_name_without_extension = vim.fn.expand "%:t:r"
+            local cwd = vim.fn.getcwd()
+            vim.fn.system("gcc -o " .. file_name_without_extension .. " -g -std=c11 " .. vim.fn.expand "%")
+            return vim.fn.getcwd() .. "/" .. file_name_without_extension
+          end,
+          cwd = "${workspaceFolder}",
+          args = {},
+          console = "integratedTerminal",
+          stopOnEntry = false, -- If true it crash
+        },
+      }
       dap.configurations.cpp = {
         {
           name = "Launch file",

@@ -12,7 +12,8 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.java" }, -- modified in plugins/community.lua
   { import = "astrocommunity.pack.bash" },
-  -- { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.typescript-all-in-one" },
   -- { import = "astrocommunity.pack.sql" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },

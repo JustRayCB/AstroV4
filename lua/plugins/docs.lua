@@ -33,7 +33,7 @@ return {
         typescript = { template = { annotation_convention = "tsdoc" } },
         typescriptreact = { template = { annotation_convention = "tsdoc" } },
         java = { template = { annotation_convention = "javadoc" } },
-        python = { template = { annotation_convention = "reST" } },
+        python = { template = { annotation_convention = "numpydoc" } },
         cpp = { template = { annotation_convention = "doxygen" } },
       },
     },

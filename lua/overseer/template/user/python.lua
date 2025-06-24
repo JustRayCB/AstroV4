@@ -6,6 +6,7 @@ return {
     return {
       cmd = { "python3" },
       args = {
+        "-B", -- Don't write .pyc files
         file,
       },
       components = {

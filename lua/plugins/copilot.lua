@@ -2,9 +2,38 @@ return {
   {
     "zbirenbaum/copilot.lua",
     -- cmd = "Copilot",
-    enable = false,
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<C-e>"] = { "<cmd>Copilot enable<cr>" },
+              ["<C-d>"] = { "<cmd>Copilot disable<cr>" },
+            },
+            i = {
+              ["<C-e>"] = { "<esc>`^<cmd>Copilot enable<cr>i" },
+              ["<C-d>"] = { "<esc>`^<cmd>Copilot disable<cr>i" },
+            },
+          },
+        },
+      },
+    },
     event = "User AstroFile",
-    opts = { suggestion = { auto_trigger = true, debounce = 150 } },
+    opts = {
+      suggestion = {
+        auto_trigger = true,
+        debounce = 150,
+        keymap = {
+          accept = "<C-l>",
+          accept_word = "<C-m>",
+          accept_line = "<C-down>",
+          next = "<C-x>",
+          prev = "<C-z>",
+          -- dismiss = "<C-c>",
+        },
+      },
+    },
   },
   {
     "hrsh7th/nvim-cmp",

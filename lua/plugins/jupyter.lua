@@ -1,7 +1,8 @@
 return {
   {
     "kiyoon/jupynium.nvim",
-    -- ft = { "jupyter" },
+    -- ft = { "*.ju.*", "*.ipynb" },
+    -- enabled = false,
     dependencies = {
       -- "rcarriga/nvim-notify", -- optional
       -- "stevearc/dressing.nvim", -- optional, UI for :JupyniumKernelSelect
@@ -94,7 +95,7 @@ return {
       -- Related command :JupyniumAttachToServer
       auto_attach_to_server = {
         enable = true,
-        file_pattern = { "*.ju.*", "*.md" },
+        file_pattern = { "*.ju.*" },
       },
 
       -- Automatically open an Untitled.ipynb file on Notebook
@@ -102,7 +103,7 @@ return {
       -- Related command :JupyniumStartSync
       auto_start_sync = {
         enable = true,
-        file_pattern = { "*.ju.*", "*.md" },
+        file_pattern = { "*.ju.*" },
       },
 
       -- Automatically keep filename.ipynb copy of filename.ju.py

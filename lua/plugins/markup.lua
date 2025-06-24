@@ -126,9 +126,10 @@ return {
   },
   {
     -- Cause the closing ( or } to be more indented than the opening one.
-    enabled = true,
+    -- enabled = true,
     "kaarmu/typst.vim",
     -- cmd = { "TypstWatch" },
+    enabled = false,
     ft = "typst",
     init = function()
       vim.g.typst_pdf_viewer = "evince"
@@ -143,9 +144,10 @@ return {
     "chomosuke/typst-preview.nvim",
     cmd = { "TypstPreview" },
     ft = "typst",
-    version = "1.2.*", -- use the latest by default
+    version = "1.*", -- use the latest by default
     build = function() require("typst-preview").update() end,
     opts = {
+      debug = true,
       dependencies_bin = {
         ["tinymist"] = "tinymist",
       },

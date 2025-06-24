@@ -48,6 +48,12 @@ return {
           opts = { skip = true },
         },
         {
+          -- TODO: Remove this when the issue is fixed
+          filter = { event = "msg_show", find = "vim.lsp.get_active_clients()" },
+          opts = { skip = true },
+        },
+
+        {
           filter = { error = true, find = "copilot_node_command" },
           opts = { skip = true },
         },

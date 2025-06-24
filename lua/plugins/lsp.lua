@@ -32,6 +32,10 @@ return {
         -- " lua_ls ",
         "jsonls", -- Conflict with jsonls
         "jdtls", -- Conflict with clang_format
+        "html",
+        "prettierd",
+        "ts_ls",
+        "denols",
       },
       timeout_ms = 3200, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -70,7 +74,7 @@ return {
         root_dir = function() return vim.fn.getcwd() end,
         settings = {
           -- exportPdf = "never",
-          exportPdf = "onType",
+          -- exportPdf = "onType",
           outputPath = "$root/$name",
           typstExtraArgs = { "main.typ" },
           -- formatterMode = "",
@@ -84,6 +88,83 @@ return {
         settings = {
           exportPdf = "never", -- Choose onType, onSave or never.
           -- serverPath = "" -- Normally, there is no need to uncomment it.
+        },
+      },
+      stylelint_lsp = {
+        root_dir = function(fname) return vim.fn.getcwd() end,
+      },
+      cssls = {
+        -- configuration options for CSSLS
+        filetypes = { "css", "scss", "less" },
+        init_options = {
+          -- options to pass to CSSLS on initialization
+          provideFormatter = true,
+          provideLinting = true,
+        },
+        settings = {
+          -- configuration settings for CSSLS
+          css = {
+            lint = {
+              -- linting options for CSS
+              unknownAtRules = "ignore",
+              -- unknownProperties = "ignore",
+              vendorPrefix = "warn",
+            },
+          },
+        },
+      },
+      tailwindcss = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(
+            "tailwind.config.js",
+            "tailwind.config.cjs",
+            "tailwind.config.ts",
+            "tailwind.config.tsx",
+            "tailwind.config.jsx",
+            ".git"
+          )(fname) or vim.fn.getcwd()
+        end,
+      },
+      denols = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(".git", "deno.json", "deno.jsonc")(fname) or vim.fn.getcwd()
+        end,
+      },
+      eslint = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(".git", "package.json", ".eslintrc.json", ".eslintrc.js")(fname)
+            or vim.fn.getcwd()
+        end,
+      },
+      tsserver = {
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern("tsconfig.json", "jsconfig.json", ".git")(fname)
+            or vim.fn.getcwd()
+        end,
+        single_file_support = false,
+        settings = {
+          typescript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "literal",
+              includeInlayParameterNameHints = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = false,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
+          javascript = {
+            inlayHints = {
+              includeInlayParameterNameHints = "all",
+              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+              includeInlayFunctionParameterTypeHints = true,
+              includeInlayVariableTypeHints = true,
+              includeInlayPropertyDeclarationTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = true,
+            },
+          },
         },
       },
     },
