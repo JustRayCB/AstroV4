@@ -15,11 +15,6 @@ return {
     opts = {
       -- add any options here
       lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
         progress = {
           enabled = false,
         },
@@ -42,27 +37,7 @@ return {
       },
       routes = {
         {
-          -- TODO: Remove this when the issue is fixed of overseer and nvim-dap is fixed
-          -- https://github.com/stevearc/overseer.nvim/issues/307 with AstroNvim
-          filter = { event = "msg_show", find = "overseer" },
-          opts = { skip = true },
-        },
-        {
-          -- TODO: Remove this when the issue is fixed
-          filter = { event = "msg_show", find = "vim.lsp.get_active_clients()" },
-          opts = { skip = true },
-        },
-
-        {
           filter = { error = true, find = "copilot_node_command" },
-          opts = { skip = true },
-        },
-        {
-          filter = { error = false, find = "Error contacting kwalletd" },
-          opts = { skip = true },
-        },
-        {
-          filter = { error = true, find = "Error executing vim.schedule" },
           opts = { skip = true },
         },
       },

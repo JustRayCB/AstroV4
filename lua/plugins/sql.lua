@@ -3,7 +3,7 @@ return {
   dependencies = {
     "tpope/vim-dadbod",
     "kristijanhusak/vim-dadbod-completion",
-    "tpope/vim-dotenv",
+    -- "tpope/vim-dotenv",
   },
   keys = { { "<leader><leader>db", "<cmd>tab DBUI<cr>", desc = "Open Database client" } },
   init = function()

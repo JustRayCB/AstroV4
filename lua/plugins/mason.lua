@@ -1,12 +1,12 @@
--- Example customization of mason plugins
 ---@type LazySpec
 return {
-  -- use mason-lspconfig to configure LSP installations
+  -- use mason-tool-installer for automatically installing Mason packages
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
+      -- Make sure to use the names found in `:Mason`
       ensure_installed = {
-        -- LSP
+        -- install language servers
         "lua-language-server",
         "jdtls",
         "clangd",
@@ -14,20 +14,18 @@ return {
         "basedpyright",
         "tinymist",
 
-        -- FORMATTERS
+        -- install formatters
         "stylua",
         "clang-format",
 
-        -- DAP
+        -- install debuggers
+        "debugpy",
         "cpptools",
         "codelldb",
-        "debugpy",
         "java-debug-adapter",
-      },
-      integrations = {
-        ["mason-lspconfig"] = false,
-        ["mason-null-ls"] = false,
-        ["mason-nvim-dap"] = false,
+
+        -- install any other package
+        "tree-sitter-cli",
       },
     },
   },

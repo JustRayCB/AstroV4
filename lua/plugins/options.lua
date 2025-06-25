@@ -10,33 +10,30 @@ return {
   opts = {
     -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 2048 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
+      diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
-      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = off)
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
       virtual_text = true,
       underline = true,
     },
+    -- passed to `vim.filetype.add`
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
-        signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-        -- wrap = false, -- sets vim.opt.wrap
+        signcolumn = "yes", -- sets vim.opt.signcolumn to yes
+        wrap = false, -- sets vim.opt.wrap
         colorcolumn = "100",
         virtualedit = "onemore",
         completeopt = "menuone,preview",
-        autoindent = true,
-        smartindent = false, -- cause weird indent behavior by inserting #
-        smarttab = true,
-        filetype = "none", -- Defaut ft when no extension,
         undofile = true,
         undodir = os.getenv "HOME" .. "/.local/share/AstroNvim/tmp/undodir",
         writebackup = false,
@@ -54,7 +51,6 @@ return {
         diagnostics_mode = 3,
         python3_host_prog = "/usr/bin/python3",
         java_home = os.getenv "HOME" .. "/.sdkman/candidates/java/current",
-        -- nonels_supress_issue58 = true,
       },
     },
     rooter = {

@@ -1,6 +1,6 @@
 # AstroNvim Template
 
-**NOTE:** This is for AstroNvim v4+
+**NOTE:** This is for AstroNvim v5+
 
 A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
@@ -32,4 +32,3 @@ git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```shell
 nvim
 ```
-

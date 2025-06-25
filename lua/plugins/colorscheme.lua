@@ -9,7 +9,7 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    -- lazy = false,
+    lazy = false,
     opts = {
       styles = {
         -- Style to be applied to different syntax groups

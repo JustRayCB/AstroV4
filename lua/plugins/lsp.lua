@@ -1,6 +1,8 @@
--- if true then return {} end -- REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
+-- Configuration documentation can be found with `:h astrolsp`
+-- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
+--       as this provides autocomplete and documentation while editing
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -11,9 +13,9 @@ return {
       autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
       inlay_hints = false, -- enable/disable inlay hints on start
-      lsp_handlers = true, -- enable/disable setting of lsp_handlers
       semantic_tokens = true, -- enable/disable semantic token highlighting
       signature_help = true,
+      lsp_handlers = true, -- enable/disable setting of lsp_handlers
     },
     -- customize lsp formatting options
     formatting = {
@@ -29,24 +31,16 @@ return {
       },
       disabled = { -- disable formatting capabilities for the listed language servers
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
-        -- " lua_ls ",
-        "jsonls", -- Conflict with jsonls
-        "jdtls", -- Conflict with clang_format
-        "html",
-        "prettierd",
-        "ts_ls",
-        "denols",
+        -- "lua_ls",
       },
-      timeout_ms = 3200, -- default format timeout
+      timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
-      --   local current_ft = vim.bo.filetype
       --   return true
       -- end
     },
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
-      -- "tinymist",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -81,92 +75,6 @@ return {
           formatterPrintWidth = 100,
         },
       },
-      typst_lsp = {
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern("typst.toml", ".git")(fname) or vim.fn.getcwd()
-        end,
-        settings = {
-          exportPdf = "never", -- Choose onType, onSave or never.
-          -- serverPath = "" -- Normally, there is no need to uncomment it.
-        },
-      },
-      stylelint_lsp = {
-        root_dir = function(fname) return vim.fn.getcwd() end,
-      },
-      cssls = {
-        -- configuration options for CSSLS
-        filetypes = { "css", "scss", "less" },
-        init_options = {
-          -- options to pass to CSSLS on initialization
-          provideFormatter = true,
-          provideLinting = true,
-        },
-        settings = {
-          -- configuration settings for CSSLS
-          css = {
-            lint = {
-              -- linting options for CSS
-              unknownAtRules = "ignore",
-              -- unknownProperties = "ignore",
-              vendorPrefix = "warn",
-            },
-          },
-        },
-      },
-      tailwindcss = {
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern(
-            "tailwind.config.js",
-            "tailwind.config.cjs",
-            "tailwind.config.ts",
-            "tailwind.config.tsx",
-            "tailwind.config.jsx",
-            ".git"
-          )(fname) or vim.fn.getcwd()
-        end,
-      },
-      denols = {
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern(".git", "deno.json", "deno.jsonc")(fname) or vim.fn.getcwd()
-        end,
-      },
-      eslint = {
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern(".git", "package.json", ".eslintrc.json", ".eslintrc.js")(fname)
-            or vim.fn.getcwd()
-        end,
-      },
-      tsserver = {
-        root_dir = function(fname)
-          return require("lspconfig.util").root_pattern("tsconfig.json", "jsconfig.json", ".git")(fname)
-            or vim.fn.getcwd()
-        end,
-        single_file_support = false,
-        settings = {
-          typescript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "literal",
-              includeInlayParameterNameHints = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = false,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-          },
-          javascript = {
-            inlayHints = {
-              includeInlayParameterNameHints = "all",
-              includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-              includeInlayFunctionParameterTypeHints = true,
-              includeInlayVariableTypeHints = true,
-              includeInlayPropertyDeclarationTypeHints = true,
-              includeInlayFunctionLikeReturnTypeHints = true,
-              includeInlayEnumMemberValueHints = true,
-            },
-          },
-        },
-      },
     },
     -- customize how language servers are attached
     handlers = {
@@ -177,7 +85,6 @@ return {
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
     },
-    -- mappings to be set up on attaching of a language server
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
       -- first key is the `augroup` to add the auto commands to (:h augroup)
@@ -200,23 +107,31 @@ return {
         },
       },
     },
+    -- mappings to be set up on attaching of a language server
     mappings = {
       n = {
+        ["<Leader>rl"] = { "<cmd>LspRestart<cr>", desc = "Restart LSP server" },
         gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
         -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
-        -- gD = {
-        --   function() vim.lsp.buf.declaration() end,
-        --   desc = "Declaration of current symbol",
-        --   cond = "textDocument/declaration",
-        -- },
-        -- ["<leader>uY"] = {
-        --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
-        --   desc = "Toggle LSP semantic highlight (buffer)",
-        --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens ~= nil end,
-        -- },
-        -- Restart LSP ser ver
-        ["<leader>rl"] = { "<cmd>LspRestart<cr>", desc = "Restart LSP server" },
+        gD = {
+          function() vim.lsp.buf.declaration() end,
+          desc = "Declaration of current symbol",
+          cond = "textDocument/declaration",
+        },
+        ["<Leader>uY"] = {
+          function() require("astrolsp.toggles").buffer_semantic_tokens() end,
+          desc = "Toggle LSP semantic highlight (buffer)",
+          cond = function(client)
+            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+          end,
+        },
       },
     },
+    -- A custom `on_attach` function to be run after the default `on_attach` function
+    -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
+    on_attach = function(client, bufnr)
+      -- this would disable semanticTokensProvider for all clients
+      -- client.server_capabilities.semanticTokensProvider = nil
+    end,
   },
 }

@@ -1,10 +1,4 @@
--- if true then return {} end -- REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroCore provides a central place to modify mappings set up as well as which-key menu titles
----@type LazySpec
 return {
-  -- Mappings can be configured through AstroCore as well.
-  -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
@@ -17,24 +11,10 @@ return {
           function()
             local bufs = vim.fn.getbufinfo { buflisted = true }
             require("astrocore.buffer").close(0)
-            if require("astrocore").is_available "alpha-nvim" and bufs ~= nil and not bufs[2] then
-              require("alpha").start(false)
-            end
+            if not bufs[2] then require("snacks").dashboard() end
           end,
           desc = "Close buffer",
         },
-        ["<Leader>C"] = {
-          function()
-            local bufs = vim.fn.getbufinfo { buflisted = true }
-            require("astrocore.buffer").close(0, true)
-            if require("astrocore").is_available "alpha-nvim" and bufs ~= nil and not bufs[2] then
-              require("alpha").start(false)
-            end
-          end,
-          desc = "Close buffer",
-        },
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
         ["<Leader>bD"] = {
           function()
@@ -72,7 +52,6 @@ return {
         ["<Leader><Leader>e"] = { "<cmd>%<cr>", desc = "Go to the last line of the file" },
 
         -- ======= END Movements Related =======
-
         ["<c-c>"] = { "y", desc = "Copy To clipboard" },
         ["a"] = { "<c-y>", desc = "Move Window one line up" },
         ["f"] = { "<c-e>", desc = "Move Window one line down" },

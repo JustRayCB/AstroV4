@@ -1,7 +1,9 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 return {
   -- Fix "jj" escaping the renaming window
   {
-    "stevearc/dressing.nvim",
+    "folke/snacks.nvim",
     opts = { input = { insert_only = false } },
   },
   {

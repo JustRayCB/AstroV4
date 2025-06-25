@@ -1,7 +1,6 @@
 return {
   "cameron-wags/rainbow_csv.nvim",
   lazy = true,
-  event = { "BufEnter *.csv" },
   config = true,
   init = function()
     -- vim.g.disable_rainbow_key_mappings = 1

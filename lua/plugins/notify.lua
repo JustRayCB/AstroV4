@@ -1,7 +1,13 @@
 return {
-  "rcarriga/nvim-notify",
+  "folke/snacks.nvim",
+  ---@type snacks.Config
   opts = {
-    stages = "slide",
-    timeout = 1000,
+    notifier = {
+      -- your notifier configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      timeout = 1000,
+      style = "fancy",
+    },
   },
 }
