@@ -159,24 +159,25 @@ return {
         },
       },
       -- Configuration for task floating windows
-      task_win = {
-        -- How much space to leave around the floating window
-        padding = 2,
-        border = "rounded",
-        -- Set any window options here (e.g. winhighlight)
-        win_opts = {
-          winblend = 10,
-        },
-      },
+      -- task_win = {
+      --   -- How much space to leave around the floating window
+      --   padding = 2,
+      --   border = "rounded",
+      --   -- Set any window options here (e.g. winhighlight)
+      --   win_opts = {
+      --     winblend = 10,
+      --   },
+      -- },
       -- Aliases for bundles of components. Redefine the builtins, or create your own.
       component_aliases = {
         -- Most tasks are initialized with the default components
         default = {
-          { "display_duration", detail_level = 2 },
-          "on_output_summarize",
+          -- { "display_duration", detail_level = 2 },
+          -- "on_output_summarize",
           "on_exit_set_status",
           "on_complete_notify",
           "on_complete_dispose",
+          { "open_output", direction = "dock", on_complete = "always", on_result = "always" },
         },
         -- Tasks from tasks.json use these components
         default_vscode = {

@@ -11,7 +11,7 @@ return {
         "jdtls",
         "clangd",
         -- "typst_lsp",
-        "basedpyright",
+        -- "basedpyright",
         "tinymist",
 
         -- install formatters

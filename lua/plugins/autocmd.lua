@@ -50,19 +50,19 @@ return {
           end,
           desc = "Compile tex file on opening",
         },
-        {
-          event = "VimEnter",
-          pattern = "*.typ",
-          group = "compile",
-          -- command = "silent TypstWatch",
-          -- command = "silent TypstPreview",
-          callback = function()
-            local filename_no_ext = vim.fn.expand "%:t:r"
-            -- if filename_no_ext == "main" then vim.cmd "silent TypstPreview" end
-            vim.cmd "TSDisable highlight" -- This is a workaround for the bug in nvim-ufo and treesitter delete ts latex
-          end,
-          desc = "Compile main typst file on opening",
-        },
+        -- {
+        --   event = "VimEnter",
+        --   pattern = "*.typ",
+        --   group = "compile",
+        --   -- command = "silent TypstWatch",
+        --   -- command = "silent TypstPreview",
+        --   callback = function()
+        --     local filename_no_ext = vim.fn.expand "%:t:r"
+        --     -- if filename_no_ext == "main" then vim.cmd "silent TypstPreview" end
+        --     vim.cmd "TSDisable highlight" -- This is a workaround for the bug in nvim-ufo and treesitter delete ts latex
+        --   end,
+        --   desc = "Compile main typst file on opening",
+        -- },
         {
           event = "VimLeave",
           pattern = "*.typ",

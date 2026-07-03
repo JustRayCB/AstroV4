@@ -1,5 +1,5 @@
 return { -- override blink.cmp plugin
-  "Saghen/blink.cmp",
+  "saghen/blink.cmp",
   dependencies = {
     "kdheepak/cmp-latex-symbols",
     "hrsh7th/cmp-calc",
@@ -11,11 +11,14 @@ return { -- override blink.cmp plugin
   opts = {
     keymap = {
       ["<Tab>"] = { "snippet_forward", "fallback" },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      ["<S-Tab>"] = {
+        function()
+          if vim.g.ai_accept then return vim.g.ai_accept() end
+        end,
+        "snippet_backward",
+        "fallback",
+      },
       ["<CR>"] = { "accept", "fallback" },
-
-      ["<c-j>"] = { "select_next", "fallback" },
-      ["<c-k>"] = { "select_prev", "fallback" },
     },
     completion = { list = { selection = { preselect = true, auto_insert = false } } },
     sources = {
@@ -38,5 +41,6 @@ return { -- override blink.cmp plugin
         },
       },
     },
+    signature = { enabled = false },
   },
 }

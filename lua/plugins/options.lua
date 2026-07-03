@@ -10,7 +10,7 @@ return {
   opts = {
     -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
+      large_buf = { size = 200048 * 256, lines = 1000000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
       diagnostics = { virtual_text = true, virtual_lines = false }, -- diagnostic settings on startup
@@ -21,6 +21,86 @@ return {
     diagnostics = {
       virtual_text = true,
       underline = true,
+    },
+    treesitter = {
+      -- Globally enable or disable treesitter features
+      -- can be:
+      --   - a boolean
+      --   - a function (`fun(lang: string, bufnr: integer): boolean`)
+      enabled = function(lang, bufnr) return not require("astrocore.buffer").is_large(bufnr) end,
+      -- Enable or disable treesitter based highlighting
+      -- can be:
+      --   - a boolean
+      --   - a function (`fun(lang: string, bufnr: integer): boolean`)
+      highlight = true,
+      -- Enable or disable treesitter based indenting
+      -- can be:
+      --   - a boolean
+      --   - a function (`fun(lang: string, bufnr: integer): boolean`)
+      indent = true,
+      -- List of treesitter parsers that should be installed automatically
+      -- ("all" can be used to install all available parsers)
+      ensure_installed = {
+        "lua",
+        "vim",
+        "vimdoc",
+        "json",
+        "python",
+        "java",
+        "cpp",
+        "c",
+        "markdown",
+        "javascript",
+        "bibtex",
+        "css",
+        "html",
+        "sql",
+      },
+      -- Automatically detect missing treesitter parser and install when editing file
+      auto_install = true,
+      -- Configure treesitter based text objects (requires `nvim-treesitter-textobjects`)
+      -- These options set up automatic detection of available queries for a file and creates
+      -- only the available bindings for each buffer.
+      textobjects = {
+        select = {
+          select_textobject = {
+            ["af"] = { query = "@function.outer", desc = "around function" },
+            ["ak"] = { query = "@block.outer", desc = "around block" },
+            ["if"] = { query = "@function.inner", desc = "around function" },
+          },
+        },
+        move = {
+          goto_next_start = {
+            ["]f"] = { query = "@function.outer", desc = "Next function start" },
+          },
+          goto_next_end = {
+            ["]F"] = { query = "@function.outer", desc = "Next function end" },
+          },
+          goto_previous_start = {
+            ["[f"] = {
+              query = "@function.outer",
+              desc = "Previous function start",
+            },
+          },
+          goto_previous_end = {
+            ["[F"] = {
+              query = "@function.outer",
+              desc = "Previous function end",
+            },
+          },
+        },
+        swap = {
+          swap_next = {
+            [">F"] = { query = "@function.outer", desc = "Swap next function" },
+          },
+          swap_previous = {
+            ["<F"] = {
+              query = "@function.outer",
+              desc = "Swap previous function",
+            },
+          },
+        },
+      },
     },
     -- passed to `vim.filetype.add`
     -- vim options can be configured here
