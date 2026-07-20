@@ -76,4 +76,11 @@ return {
       }
     end,
   },
+  {
+    "nvim-flutter/flutter-tools.nvim",
+    opts = function(_, opts)
+      -- flutter-tools expects this command to return the Flutter SDK root.
+      opts.flutter_lookup_cmd = "mise where flutter"
+    end,
+  },
 }

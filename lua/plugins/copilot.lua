@@ -2,6 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     -- cmd = "Copilot",
+    enabled = false,
     dependencies = {
       {
         "AstroNvim/astrocore",
@@ -68,6 +69,14 @@ return {
       strategies = {
         chat = { adapter = "copilot" },
         inline = { adapter = "copilot" },
+      },
+      interactions = {
+        chat = {
+          adapter = {
+            name = "copilot",
+            model = "",
+          },
+        },
       },
     },
   },

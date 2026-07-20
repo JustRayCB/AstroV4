@@ -25,8 +25,8 @@ return { -- override blink.cmp plugin
       default = { "lsp", "path", "snippets", "buffer", "emoji", "latex", "calc" },
       providers = {
         path = { opts = { trailing_slash = false, show_hidden_files_by_default = true }, score_offset = 3 },
-        lsp = { score_offset = 0 },
-        snippets = { score_offset = -1 },
+        lsp = { score_offset = -1 },
+        snippets = { score_offset = 0 },
         buffer = { score_offset = -3 },
         emoji = { name = "Emoji", module = "blink-emoji", min_keyword_length = 1, score_offset = -1 },
         latex = {

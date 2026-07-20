@@ -29,4 +29,7 @@ require("lazy").setup({
       },
     },
   },
+  git = {
+    timeout = 360,
+  },
 } --[[@as LazyConfig]])

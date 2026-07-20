@@ -7,6 +7,8 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.dart" },
+  { import = "astrocommunity.pack.go" },
   -- Base pack with basedpyright, black and isort
   { import = "astrocommunity.pack.python.base" },
   { import = "astrocommunity.pack.python.basedpyright" },
@@ -19,7 +21,7 @@ return {
   { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.biome" },
   { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.editing-support.refactoring-nvim" },
+  -- { import = "astrocommunity.editing-support.refactoring-nvim" },
 
   { import = "astrocommunity.ai.opencode-nvim" },
 
